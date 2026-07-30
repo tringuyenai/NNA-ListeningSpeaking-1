@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Prep Master - Listening & Speaking</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.4s ease-out forwards',
+                        slideUp: 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        pulseSoft: 'pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(8px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.7' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.6); }
+        .glass-panel { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        
+        /* Input Text Styling for P2/P4 */
+        .blank-input {
+            border: none;
+            border-bottom: 2px dashed #8b5cf6;
+            background: transparent;
+            color: #8b5cf6;
+            font-weight: 800;
+            text-align: center;
+            width: 120px;
+            padding: 0 4px;
+            margin: 0 4px;
+            transition: all 0.2s;
+        }
+        .blank-input:focus {
+            outline: none;
+            border-bottom: 2px solid #a78bfa;
+            width: 140px;
+        }
+        .blank-input.correct {
+            border-bottom: 2px solid #10b981;
+            color: #10b981;
+        }
+        .blank-input.wrong {
+            border-bottom: 2px solid #ef4444;
+            color: #ef4444;
+        }
+        .blank-input:disabled {
+            cursor: not-allowed;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: 4px;
+            border-bottom-style: solid;
+        }
+        .dark .blank-input:disabled {
+            background: rgba(139, 92, 246, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- APP HEADER -->
+    <header class="sticky top-0 z-40 w-full border-b glass-panel bg-white/80 dark:bg-[#12121a]/90 border-gray-200 dark:border-zinc-800 transition-colors duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="switchView('dashboard')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-700 to-fuchsia-500 flex items-center justify-center text-white font-black text-lg shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-headphones-simple"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-black tracking-tight dark:text-white">PREP MASTER</h1>
+                    <p class="text-[9px] text-violet-600 dark:text-violet-400 font-bold tracking-widest uppercase">Listening Specialist</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors cursor-pointer text-gray-600 dark:text-gray-300" id="theme-toggle">
+                    <!-- Icon auto-injected -->
+                </button>
+                <button onclick="openResetModal()" class="px-3.5 py-2 rounded-xl bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/50 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-rotate-right text-[10px]"></i> Làm mới
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP WRAPPER -->
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        
+        <!-- VIEW: DASHBOARD -->
+        <div id="view-dashboard" class="space-y-6 animate-fadeIn max-w-4xl mx-auto mt-4">
+            
+            <div class="text-center space-y-2 mb-8">
+                <h2 class="text-2xl sm:text-3xl font-black tracking-tight dark:text-white">Danh Mục Ôn Tập Listening</h2>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-zinc-400 font-medium">Hệ thống tự động liên kết Audio và trả kết quả ngay sau khi hoàn thành từng câu.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- P1 -->
+                <div onclick="startQuiz('p1')" class="group bg-white dark:bg-[#1a1a24] rounded-2xl border border-gray-200 dark:border-zinc-800 p-5 shadow-sm hover:border-violet-500 dark:hover:border-violet-500 hover:shadow-md transition-all cursor-pointer flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform shrink-0"><i class="fa-solid fa-list-check"></i></div>
+                    <div>
+                        <h4 class="text-sm font-black text-gray-900 dark:text-white">P1: Trắc nghiệm (MCQ)</h4>
+                        <p class="text-[10px] text-gray-500 dark:text-zinc-400 mt-1">34 câu hỏi giao tiếp & học thuật.</p>
+                    </div>
+                </div>
+                <!-- P2 -->
+                <div onclick="startQuiz('p2')" class="group bg-white dark:bg-[#1a1a24] rounded-2xl border border-gray-200 dark:border-zinc-800 p-5 shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:shadow-md transition-all cursor-pointer flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform shrink-0"><i class="fa-solid fa-pen-clip"></i></div>
+                    <div>
+                        <h4 class="text-sm font-black text-gray-900 dark:text-white">P2: Điền từ / Số</h4>
+                        <p class="text-[10px] text-gray-500 dark:text-zinc-400 mt-1">10 bài tập điền khuyết đa dạng.</p>
+                    </div>
+                </div>
+                <!-- P3 -->
+                <div onclick="startQuiz('p3')" class="group bg-white dark:bg-[#1a1a24] rounded-2xl border border-gray-200 dark:border-zinc-800 p-5 shadow-sm hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md transition-all cursor-pointer flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform shrink-0"><i class="fa-solid fa-check-double"></i></div>
+                    <div>
+                        <h4 class="text-sm font-black text-gray-900 dark:text-white">P3: Chọn nhiều đáp án</h4>
+                        <p class="text-[10px] text-gray-500 dark:text-zinc-400 mt-1">Multiple Response Questions</p>
+                    </div>
+                </div>
+                <!-- P4 -->
+                <div onclick="startQuiz('p4')" class="group bg-white dark:bg-[#1a1a24] rounded-2xl border border-gray-200 dark:border-zinc-800 p-5 shadow-sm hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-md transition-all cursor-pointer flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform shrink-0"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div>
+                        <h4 class="text-sm font-black text-gray-900 dark:text-white">P4: Dán nhãn bản đồ</h4>
+                        <p class="text-[10px] text-gray-500 dark:text-zinc-400 mt-1">Labelling a Plan / Map</p>
+                    </div>
+                </div>
+                <!-- P5 -->
+                <div onclick="startQuiz('p5')" class="sm:col-span-2 group bg-white dark:bg-[#1a1a24] rounded-2xl border border-gray-200 dark:border-zinc-800 p-5 shadow-sm hover:border-rose-500 dark:hover:border-rose-500 hover:shadow-md transition-all cursor-pointer flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform shrink-0"><i class="fa-solid fa-spell-check"></i></div>
+                    <div>
+                        <h4 class="text-sm font-black text-gray-900 dark:text-white">P5: Đúng / Sai / Không đề cập</h4>
+                        <p class="text-[10px] text-gray-500 dark:text-zinc-500 mt-1">True/False/Not Given (35 câu hỏi, 4 bài nghe)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: QUIZ PRACTICE -->
+        <div id="view-quiz" class="hidden animate-fadeIn">
+            <!-- Subject Context Bar -->
+            <div class="sticky top-16 z-30 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-white/90 dark:bg-[#1a1a24]/90 glass-panel border border-gray-200 dark:border-zinc-800 shadow-sm">
+                <div class="space-y-1">
+                    <h3 id="quiz-course-title" class="text-sm font-black dark:text-white text-violet-700 dark:text-violet-400 uppercase tracking-wide">...</h3>
+                    <p id="quiz-course-subtitle" class="text-[10px] text-gray-500 dark:text-zinc-400 font-medium">...</p>
+                </div>
+                <div class="flex items-center gap-3 w-full sm:w-auto">
+                    <div class="px-4 py-2 rounded-xl bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300 text-xs font-black border border-violet-100 dark:border-violet-800/30 flex-1 sm:flex-none text-center" id="live-score">
+                        Đang thống kê...
+                    </div>
+                    <button onclick="openExitModal()" class="px-4 py-2 rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-700 text-xs font-bold transition-all cursor-pointer">
+                        Thoát
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Layout Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Main Questions Stream (Left Panel) -->
+                <div class="lg:col-span-8 space-y-6" id="questions-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Floating Sidebar Controls (Right Panel) -->
+                <div class="hidden lg:block lg:col-span-4 sticky top-24 space-y-4">
+                    <div class="p-5 rounded-3xl bg-white dark:bg-[#1a1a24] border border-gray-200 dark:border-zinc-800 shadow-lg shadow-gray-200/50 dark:shadow-none space-y-5">
+                        <h4 class="text-xs font-black uppercase tracking-wider dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-violet-500"></i> Điều hướng bài tập
+                        </h4>
+                        
+                        <div class="grid grid-cols-2 gap-3 text-center">
+                            <div class="p-3.5 rounded-2xl bg-gray-50 dark:bg-[#15151e] border border-gray-100 dark:border-zinc-800">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1">Đã làm</p>
+                                <span class="text-xl font-black dark:text-white" id="stat-answered-count">0/0</span>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/30">
+                                <p class="text-[10px] text-emerald-600 dark:text-emerald-500 uppercase font-bold tracking-wider mb-1">Điểm</p>
+                                <span class="text-xl font-black text-emerald-600 dark:text-emerald-400" id="stat-score-count">0</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 max-h-72 overflow-y-auto pr-1 custom-scrollbar" id="sidebar-grid">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-100 dark:border-zinc-800">
+                            <button onclick="openResetModal()" class="w-full py-3 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-300 text-xs font-black rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-shuffle"></i> Xáo trộn câu hỏi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- MODAL: CONFIRM APP STATE RESET -->
+    <div id="modal-reset" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 glass-panel" onclick="closeResetModal()"></div>
+        <div class="relative bg-white dark:bg-[#1a1a24] rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-gray-200 dark:border-zinc-800 animate-slideUp space-y-5">
+            <div class="w-14 h-14 rounded-full bg-red-50 dark:bg-red-900/20 text-red-500 flex items-center justify-center text-2xl mx-auto">
+                <i class="fa-solid fa-rotate"></i>
+            </div>
+            <div class="space-y-2 text-center">
+                <h4 class="text-base font-black dark:text-white">Xác nhận làm mới bài học?</h4>
+                <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed font-medium">
+                    Hệ thống sẽ xóa sạch kết quả, xáo trộn lại thứ tự câu hỏi để bạn ôn tập từ đầu.
+                </p>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeResetModal()" class="flex-1 py-3 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-300 font-bold text-xs rounded-xl cursor-pointer transition-colors">
+                    Hủy bỏ
+                </button>
+                <button onclick="handleResetSession()" class="flex-1 py-3 bg-red-500 hover:bg-red-600 text-white font-bold text-xs rounded-xl cursor-pointer transition-colors shadow-lg shadow-red-500/30">
+                    Đồng ý
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: CONFIRM QUIT TASK -->
+    <div id="modal-exit" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 glass-panel" onclick="closeExitModal()"></div>
+        <div class="relative bg-white dark:bg-[#1a1a24] rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-gray-200 dark:border-zinc-800 animate-slideUp space-y-5">
+            <div class="w-14 h-14 rounded-full bg-amber-50 dark:bg-amber-900/20 text-amber-500 flex items-center justify-center text-2xl mx-auto">
+                <i class="fa-solid fa-door-open"></i>
+            </div>
+            <div class="space-y-2 text-center">
+                <h4 class="text-base font-black dark:text-white">Bạn muốn rời khỏi bài thi?</h4>
+                <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed font-medium">
+                    Tiến độ làm bài hiện tại sẽ bị hủy bỏ nếu bạn quay lại Dashboard.
+                </p>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeExitModal()" class="flex-1 py-3 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-300 font-bold text-xs rounded-xl cursor-pointer transition-colors">
+                    Ở lại
+                </button>
+                <button onclick="confirmExit()" class="flex-1 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl cursor-pointer transition-colors shadow-lg shadow-amber-500/30">
+                    Thoát
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA BANK ---
+        const dataBank = {
+            p1: {
+                title: "P1: Trắc nghiệm (Multiple Choice)",
+                subtitle: "Audio kèm Script & Giải thích đáp án tự động",
+                questions: [
+                    {
+                        question: "You hear a guitarist talking about his profession. What is the purpose of his talk?",
+                        vietnamese: "Bạn nghe một nghệ sĩ guitar nói về nghề nghiệp của anh ấy. Mục đích bài nói của anh ấy là gì?",
+                        options: [
+                            "to warn about the challenges of becoming a musician",
+                            "to give step-by-step guidance on setting up a band",
+                            "to emphasize the importance of having loyal fans"
+                        ],
+                        answer: 0,
+                        explanation: "\"People ask me how to set up a band, but that’s a matter of luck, there’s no simple answer. Find people who want it as badly as you do, who can also be your best friends. I want to say something about the difficulty of learning to be a musician. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>It takes thousands of hours of practice, you have to be blessed with talent, you have to have day jobs until you finally make it</span>, but if you have a passion for something, and you work and enough, you’ll get there. You’ll soon find out which are the venues with the most enthusiastic fans.\""
+                    },
+                    {
+                        question: "You hear two students talking about their current course topic. What do they agree about?",
+                        vietnamese: "Bạn nghe hai sinh viên nói về chủ đề khóa học hiện tại của họ. Họ đồng ý với nhau về điều gì?",
+                        options: [
+                            "how difficult it is",
+                            "how relevant it is",
+                            "how boring it is"
+                        ],
+                        answer: 0,
+                        explanation: "Woman: I think the lectures are really fascinating, don’t you? Man: Only if you’re interested in that period of history. You’d think the lecture would have moved on to the next period by now. It’s much more interesting. Woman: But we needed extra time on it because it’s such a complex area. Man: Yeah, I can’t make head nor tail of it! Woman: <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>We need to get to grips with it though or we won’t be able to manage what’s coming next.</span> Man: But is it really useful anyway? Woman: Oh, come on. Let’s get a coffee."
+                    },
+                    {
+                        question: "You hear a woman talking to a sales assistant. Why can’t she have a refund for her trainers?",
+                        vietnamese: "Bạn nghe một người phụ nữ nói chuyện với nhân viên bán hàng. Tại sao cô ấy không thể được hoàn tiền cho đôi giày thể thao của mình?",
+                        options: [
+                            "The receipt is wrong.",
+                            "She is not in the right shop.",
+                            "The trainers are no longer new."
+                        ],
+                        answer: 1,
+                        explanation: "Assistant: Hello, can I help you? Woman: Yes, I bought these trainers from your company online, and I really like them and everything, but they’re a bit tight. I was wondering if you could give me a refund. Assistant: Sorry, I’m afraid we can’t do that. Woman: Why not? It’s obvious I haven’t worn them and I’ve still got the receipt. Is it because I bought them online? Aren’t you legally required to give a refund? Assistant: No, it’s not that. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>These trainers don’t come from here. Look at the receipt. It’s got the wrong name on. Try next door.</span>"
+                    },
+                    {
+                        question: "You hear a man talking about how his business became successful. Where did his additional funding come from?",
+                        vietnamese: "Bạn nghe một người đàn ông nói về việc kinh doanh của anh ấy đã thành công như thế nào. Nguồn tài trợ bổ sung của anh ấy đến từ đâu?",
+                        options: [
+                            "his own savings",
+                            "the local bank",
+                            "a family friend"
+                        ],
+                        answer: 2,
+                        explanation: "\"I started this business with a really small budget. I tried to run it really economically, using the money I’d saved over the years and I chose to sell my products in quality stores for the first year before approaching the supermarkets. Then my business suddenly took off and I knew if I wanted to continue to grow, I really needed to make a series of TV advertisements and that required more money than I personally had. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>Someone my mother knew offered to help me out</span>, which was really lucky because I’d tried applying to the bank for a loan but the interest rates were too high.\""
+                    },
+                    {
+                        question: "You hear two friends talking about a laboratory experiment. How do they both feel now?",
+                        vietnamese: "Bạn nghe hai người bạn nói về một thí nghiệm trong phòng thí nghiệm. Hiện tại cả hai cảm thấy thế nào?",
+                        options: [
+                            "anxious about the procedures they used",
+                            "annoyed about having to repeat it",
+                            "disappointed with the results"
+                        ],
+                        answer: 0,
+                        explanation: "Woman: How do you think the experiment went, then? Man: Not sure, really. It was pretty exciting at the time, but now we have to work out what it all means. Woman: Yes, it always does take a while to analyse the results. I just hope we did it all properly. Man: Yeah, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>that’s what concerns me – if we got anything wrong, then we’ll have to start all over again, which would be a pain.</span> Woman: True, but I think we were very careful. I can’t see why we should have to repeat it all. Man: I hope you’re right!"
+                    },
+                    {
+                        question: "You hear two students talking about their course. What does the woman think about the course?",
+                        vietnamese: "Bạn nghe hai sinh viên nói về khóa học của họ. Người phụ nữ nghĩ gì về khóa học?",
+                        options: [
+                            "It is worth doing.",
+                            "It is becoming more interesting.",
+                            "It is quite difficult."
+                        ],
+                        answer: 0,
+                        explanation: "Man: That was a good lecture, wasn’t it? Woman: Yeah, not bad – I just wish the course was a bit more challenging sometimes. Man: Do you? I find it quite hard enough already, actually! Woman: Well, at the beginning of term, I thought it was going to be great, you know, and looking into it all in more depth would be fascinating … but now I’m not so sure. Man: So do you think you might do something else instead next year? Woman: <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>No, I’ll definitely carry on – I am learning and I need the qualification</span>, even if it’s just so I can go on to do something a bit more relevant later on!\""
+                    },
+                    {
+                        question: "You overhear two friends talking in a restaurant. What do they agree about?",
+                        vietnamese: "Bạn tình cờ nghe hai người bạn nói chuyện trong một nhà hàng. Họ đồng ý với nhau về điều gì?",
+                        options: [
+                            "how spicy the food is",
+                            "how varied the menu is",
+                            "how reasonable the price is"
+                        ],
+                        answer: 2,
+                        explanation: "Man: Hmm! Delicious soup! Woman: You think so? It’s a bit hot, isn’t it? Man: What do you mean, hot? Too many spices, or the temperature? Woman: It burned my mouth. Man: Well, you should have had something else. There was plenty to choose from. Woman: There may have been for you, but don’t forget I’m a vegetarian – there wasn’t much there for me. Man: But <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>at least we haven’t paid a fortune for it. Woman: Um, I couldn’t even make it at home for that price.</span> But I still think we should go somewhere else next time …"
+                    },
+                    {
+                        question: "You hear a woman talking about her neighbors’ holiday photographs. What is she doing?",
+                        vietnamese: "Bạn nghe một người phụ nữ nói về những bức ảnh kỳ nghỉ của những người hàng xóm. Cô ấy đang làm gì?",
+                        options: [
+                            "admiring her neighbors’ photography skills",
+                            "complaining about having to look at them",
+                            "suggesting how they could be improved"
+                        ],
+                        answer: 0,
+                        explanation: "\"They always invite us round for dinner after they’ve been on holiday, and show us all the photos they’ve taken. I didn’t like the dinner much, but of course I didn’t say anything. They go to some interesting places, and <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>they actually do pretty well considering they don’t have expensive equipment, or any training as photographers.</span> I wish I could remember the name of the place they went to this summer – that’s really annoying – I should have written it down. I’ll have to ask them next time I see them.\""
+                    },
+                    {
+                        question: "You hear a sportsperson talking about her sporting career. What is she going to do in the future?",
+                        vietnamese: "Bạn nghe một vận động viên nói về sự nghiệp thể thao của cô ấy. Cô ấy dự định làm gì trong tương lai?",
+                        options: [
+                            "train for the next event",
+                            "become a sports writer",
+                            "change her career"
+                        ],
+                        answer: 2,
+                        explanation: "\"When I work so hard for any competition and then it’s over, the following weeks can be really difficult – quite an anti-climax. But then the next competition comes along and I get straight back into training. But this time it’ll be different. I’ll miss it, of course I will. But at some point in your career you have to say enough is enough and I wanted to finish at the top of my game. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I don’t have any plans yet but it won’t be anything connected with sport. I’ve always wanted to be a writer so perhaps I’ll do a writing course next.</span>\""
+                    },
+                    {
+                        question: "You hear two friends talking about something they saw on TV. What did they see?",
+                        vietnamese: "Bạn nghe hai người bạn nói về một thứ họ đã xem trên TV. Họ đã xem gì?",
+                        options: [
+                            "an advertisement",
+                            "a comedy series",
+                            "a documentary"
+                        ],
+                        answer: 0,
+                        explanation: "Man: It’s funny really, but I just didn’t get it. Everyone was talking about it, but I just thought it was silly. Woman: You mean you wanted more information? Man: Exactly! I mean what’s the point of something like that? It didn’t even make me laugh. Woman: Oh come on, you have to admit it was pretty funny! Man: Well I didn’t think so. And it was annoying the way everybody whistled the tune all the time. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>Why on earth would that make me buy something?</span> Woman: I think you’re too serious sometimes. It was just a bit of fun. If you want to find out more, then look on the internet."
+                    },
+                    {
+                        question: "The tutor suggests_____",
+                        vietnamese: "Người hướng dẫn gợi ý_____",
+                        options: [
+                            "not discussing the dangers of mobile phones.",
+                            "discussing the benefits of mobile phones.",
+                            "having an argument."
+                        ],
+                        answer: 1,
+                        explanation: "Tutor: OK... but before you talk about the dangers of mobile phones, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I think you should mention the advantages, you could put that in your introduction. It balances up the argument a bit.</span>"
+                    },
+                    {
+                        question: "The introduction explains_____",
+                        vietnamese: "Phần giới thiệu giải thích_____",
+                        options: [
+                            "the importance of understanding the dangers of mobile phones.",
+                            "the dangers of mobile phones.",
+                            "the importance of mobile phones."
+                        ],
+                        answer: 0,
+                        explanation: "Anne-Marie: Well, we've planned to divide the presentation into three sections. We'll have an introduction, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>explaining why we think it's important to understand the dangers of mobiles.</span>"
+                    },
+                    {
+                        question: "On the second slide, the students are planning to_____",
+                        vietnamese: "Trên trang trình chiếu thứ hai, các sinh viên dự định_____",
+                        options: [
+                            "explain why mobile phones are dangerous.",
+                            "mention ways to avoid the risks.",
+                            "point out some different kinds of risks."
+                        ],
+                        answer: 2,
+                        explanation: "Anne-Marie: Then on the second slide, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>we'll have a list of the different types of danger</span> and then on the last slide we're going to suggest ways of staying out of danger when you use a mobile."
+                    },
+                    {
+                        question: "The topic of the presentation is_____",
+                        vietnamese: "Chủ đề của bài thuyết trình là_____",
+                        options: [
+                            "how mobile phones are used.",
+                            "the risks caused by mobile phones.",
+                            "how mobile phones are designed."
+                        ],
+                        answer: 1,
+                        explanation: "Laila: Err... Not exactly. We're actually going to <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>explain the dangers of using mobile phones.</span>"
+                    },
+                    {
+                        question: "You overhear a man talking to his wife on the phone. What is he talking about?",
+                        vietnamese: "Bạn tình cờ nghe một người đàn ông nói chuyện với vợ qua điện thoại. Anh ấy đang nói về điều gì?",
+                        options: [
+                            "booking a holiday",
+                            "moving abroad",
+                            "buying a car"
+                        ],
+                        answer: 2,
+                        explanation: "Man: It’ll be great, you’ll see! We won’t just be stuck in one place, we’ll be able to go on day trips wherever we want, and see all sorts of interesting sights. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>We won’t be rushing to catch the bus to work every morning</span> – we’ll actually have time to sit down and have breakfast together – it seems a shame that we only have time to do things like that when we’re away on holiday. Fancy having to leave the country to have a relaxed breakfast! I know it’s expensive, but I definitely think it’ll be worth it. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>And when you pass, you’ll get the benefit too!</span>"
+                    },
+                    {
+                        question: "You hear part of a radio program. What is the woman talking about?",
+                        vietnamese: "Bạn nghe một phần của chương trình radio. Người phụ nữ đang nói về điều gì?",
+                        options: [
+                            "a new shop",
+                            "a new leisure center",
+                            "a new exhibition"
+                        ],
+                        answer: 2,
+                        explanation: "\"I’m sure it’ll be popular, especially with sporty types. There’s a lot of swimming gear on display – it’s fascinating to see how different types of swimwear can affect a swimmer’s performance. It actually made me want to get out there and do something active myself! You can book tickets online, and it’s open seven days a week. And of course <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>once you’re in the building, there are all the permanent collections to look at too</span>, if you want to. So whether you’re like me and a bit of a couch potato, or fit and into exercise already, go and have a look!\""
+                    },
+                    {
+                        question: "You overhear two students discussing a reading project they did with young children. What do they agree about it?",
+                        vietnamese: "Bạn tình cờ nghe hai sinh viên thảo luận về một dự án đọc sách họ làm với trẻ nhỏ. Họ đồng ý với nhau về điều gì?",
+                        options: [
+                            "The number of participants was surprising.",
+                            "The material was well received.",
+                            "The venue was perfect."
+                        ],
+                        answer: 1,
+                        explanation: "Man: So did you like working with the little kids, reading with them and everything? <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>The books we chose for them from our library went down a storm, didn’t they?</span> Especially the bits we read out loud. Woman: Yeah, though I wondered if the really little ones could hear properly – it’s such a big space. It was good fun, though … Man: Like when we started giving away the gifts we’d brought them. Woman: It’s a pity the weather wasn’t good – we should’ve been out in the sunshine. That room’s meant to hold the whole school – about six hundred kids … Man: Well, at least we got out to play football with them in the break …"
+                    },
+                    {
+                        question: "You hear two business people talking about a contract. How does the man feel now?",
+                        vietnamese: "Bạn nghe hai doanh nhân nói chuyện về một hợp đồng. Hiện tại người đàn ông cảm thấy thế nào?",
+                        options: [
+                            "frustrated because of the time wasted",
+                            "surprised about the cancellation of the contract",
+                            "sympathetic towards the other company’s problems"
+                        ],
+                        answer: 2,
+                        explanation: "Man: Have you heard that the contract’s been cancelled? Woman: No, I had no idea! You must be really annoyed after all the work you put into it. Man: Initially, I was, yes. I spent three weeks putting it all together and the company were really positive about it. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>But then I found out that they’re in some financial difficulty so it’s really unfortunate for them.</span> We’ve worked with them for years. Woman: It was a huge contract, wasn’t it. What are you going to do now? Man: Well, we’ve just had a very big order from one of our trusted clients so that’s taken any pressure off."
+                    },
+                    {
+                        question: "You hear a woman talking about a radio chat show. What does she like about the show?",
+                        vietnamese: "Bạn nghe một người phụ nữ nói về một chương trình trò chuyện trên radio. Cô ấy thích điều gì ở chương trình này?",
+                        options: [
+                            "The presenter makes her laugh.",
+                            "Information is given in an interesting way.",
+                            "Guests reveal quite a lot about themselves."
+                        ],
+                        answer: 1,
+                        explanation: "\"I love listening to The Clare Nolan show on Friday at eight o’clock. She has great guests and they often have a good time together on the show. Clare has a way of getting people to say things which come across as very funny. She doesn’t come across as a celebrity, but more a normal person who is clever and <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>tells us things we don’t know in an enthusiastic and useful manner.</span> She’s good at doing that at the same time as making her guests feel involved. So many presenters nowadays seem to use their shows just to show off their own talents, but not Clare Nolan.\""
+                    },
+                    {
+                        question: "You overhear a woman talking to a friend on her mobile phone. Why is she phoning?",
+                        vietnamese: "Bạn tình cờ nghe một người phụ nữ nói chuyện với bạn trên điện thoại di động. Tại sao cô ấy gọi?",
+                        options: [
+                            "to explain a delay",
+                            "to change some plans",
+                            "to make an arrangement"
+                        ],
+                        answer: 2,
+                        explanation: "\"I don’t mind when you come over, as long as it isn’t too late – six thirty would be fine and give us time to have a really good chat. Is that OK? I have to get up early on Thursday morning, because I have to get the earlier flight. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I’d booked myself on a ten o’clock one, but that’s been cancelled. There’s another one in the afternoon, but I’d miss the meeting if I took that one.</span> It’s a big of a nuisance, but there you go. Anyway, it’ll be great to see you!\""
+                    },
+                    {
+                        question: "You hear a woman talking on her mobile phone about a missing piece of furniture. How does she feel?",
+                        vietnamese: "Bạn nghe một người phụ nữ nói chuyện trên điện thoại di động về một món đồ nội thất bị mất. Cô ấy cảm thấy thế nào?",
+                        options: [
+                            "anxious to find it quickly",
+                            "irritated with the removals company",
+                            "unsure what’s happened"
+                        ],
+                        answer: 2,
+                        explanation: "\"I see, it wasn’t in the van. But never mind, I’ll call the removals company. It’s OK, I’m sure it’ll be fine, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I just wonder what they’ve done with it. I mean it isn’t something you can easily lose, is it? You’d think someone would’ve noticed almost straightaway.</span> I’m sure it’ll turn up very soon. So don’t get too upset about it – it’s just rather odd. And considering all the things that could have gone wrong, I think we’ve been fairly lucky really, don’t you?\""
+                    },
+                    {
+                        question: "You hear an artist telling a friend about an art prize he’s just won. What is he doing?",
+                        vietnamese: "Bạn nghe một nghệ sĩ kể cho bạn nghe về một giải thưởng nghệ thuật anh ấy vừa đạt được. Anh ấy đang làm gì?",
+                        options: [
+                            "admitting that he’s excited",
+                            "explaining why he thinks he was chosen",
+                            "expressing surprise"
+                        ],
+                        answer: 0,
+                        explanation: "Woman: You must be thrilled after the announcement that you’ve won such a famous art prize! Man: Well, to be honest, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I’m not quite sure how I feel yet! I’d always wondered about the idea of an art prize – I mean, it’s not exactly a competition, so it seems strange.</span> And you never quite know what the judges are looking for when they pick a winner. Woman: Really? Man: Well, yes. But actually, when I was on my own in the studio, I felt much more positive about it and even started dreaming about how my career would change now – not to mention what I’ll do with the money! Woman: Well, good luck!"
+                    },
+                    {
+                        question: "You hear two friends talking about a concert they’ve just been to. What did they find disappointing about it?",
+                        vietnamese: "Bạn nghe hai người bạn nói về một buổi hòa nhạc họ vừa tham dự. Họ thấy điều gì đáng thất vọng về nó?",
+                        options: [
+                            "the lack of air conditioning",
+                            "the poor sound quality",
+                            "the seats they had booked"
+                        ],
+                        answer: 2,
+                        explanation: "Woman: I really enjoyed that, didn’t you, despite the technical problems at the beginning. Man: Wonderful. Spanish flamenco music just makes you want to get up and dance. Woman: I noticed you standing up at one stage. Man: Yeah, but that was to get a better view. Woman: Ahh – yes, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>pity we were at the back. But it was all that was available when I bought the tickets on Friday.</span> Man: I know, but next time we must book earlier. Woman: It was very hot in there. Man: Did that bother you? I just kept thinking it was like summer in Spain. I loved all the singing and the rhythm of the sticks they beat on the floor. Woman: Me too."
+                    },
+                    {
+                        question: "You hear two friends talking about a colleague. What do they agree about?",
+                        vietnamese: "Bạn nghe hai người bạn nói về một đồng nghiệp. Họ đồng ý với nhau về điều gì?",
+                        options: [
+                            "how ambitious he is",
+                            "how stressed he is",
+                            "how well-paid he is"
+                        ],
+                        answer: 0,
+                        explanation: "Woman: I don’t know how he does it – he gets into the office before everyone else in the morning, and he’s also always the last to leave. He must be exhausted all the time! Man: He seems pretty fit, though – and whenever I see him at the weekends, he looks relaxed and happy. Maybe he just likes getting everything done before he goes home. Woman: Yeah, maybe you’re right … but he earns just the same as we do, and that’s not much. Man: It’s not too bad, though, is it? And <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I think he’ll be promoted before any of the rest of us are – he’s obviously very keen!</span> Woman: There’s no denying that!"
+                    },
+                    {
+                        question: "You hear a young actor talking about a colleague. What does he say about her?",
+                        vietnamese: "Bạn nghe một diễn viên trẻ nói về một đồng nghiệp. Anh ấy nói gì về cô ấy?",
+                        options: [
+                            "She makes acting seem easy.",
+                            "She speaks very slowly.",
+                            "She gives him good advice."
+                        ],
+                        answer: 0,
+                        explanation: "\"Just watching her work is very useful. I’ve only been acting for about a year ago I’ve got so much to learn. When you meet someone who’s as famous as she is, there’s always a bit of nerves. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>She’s an intelligent actor and everything she does seems so effortless.</span> As I’ve got such a small part in the drama, I get to stand around a lot during the scenes and it means I can watch and learn from her. She’s very composed when she’s acting; she takes her time to say her lines.\""
+                    },
+                    {
+                        question: "You hear an author talking about his new book. What point is he making about it?",
+                        vietnamese: "Bạn nghe một tác giả nói về cuốn sách mới của anh ấy. Anh ấy đang đưa ra quan điểm gì về nó?",
+                        options: [
+                            "It took a long time to write.",
+                            "It will be widely read.",
+                            "It is better than his first book."
+                        ],
+                        answer: 0,
+                        explanation: "\"Thanks for inviting me to come on the programme and talk about my new book. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I thought the book might never happen when I was sitting at my desk day after day. I wished the words would simply flow out like they did when I was writing my other books.</span> Sometimes I wondered if I’d ever get it finished. Of course, I know it’s unlikely to be become a best-seller, but I hope that my loyal readers will enjoy it. They’ll recognise some of the characters from my first novel, older and wiser – at least in some cases!\""
+                    },
+                    {
+                        question: "You hear a woman talking about roller derby, a hobby which involves speed racing on skates. What is she doing?",
+                        vietnamese: "Bạn nghe một người phụ nữ nói về roller derby, một sở thích liên quan đến đua tốc độ trên giày trượt. Cô ấy đang làm gì?",
+                        options: [
+                            "explaining what made her decide to take it up",
+                            "appreciating her friends’ attitude to the sport",
+                            "describing how she feels when she’s taking part"
+                        ],
+                        answer: 2,
+                        explanation: "\"My roller derby skates are the most expensive footwear I’ve ever owned. It’s a tough, physical game, and I think that’s been the most astonishing thing for friends to understand, when I tell them which sport I’ve taken up. They’re always amazed when they see me too, as our team races against another one around a track at incredible speed. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>It’s thrilling – a great way of just leaving all my worries behind for a few hours.</span> But of course body protection like a big helmet and knee pads are essential, so I admit I must be pretty unrecognisable like that – especially since in my daily life I look so ordinary!\""
+                    },
+                    {
+                        question: "You overhear a student calling his university department. Why is he phoning?",
+                        vietnamese: "Bạn tình cờ nghe một sinh viên gọi điện cho khoa của trường đại học. Tại sao anh ấy gọi?",
+                        options: [
+                            "to make a complaint",
+                            "to book an appointment",
+                            "to find out about a course"
+                        ],
+                        answer: 1,
+                        explanation: "\"Hello, I wonder if I could talk to someone about the History of Art course? My teacher told me I could call your department if I needed to discuss anything – and I do. The trouble is, I’m finding it difficult to get all the work for this course module done on time. Even though the classes are great – and that’s very much because of the teacher, Mr Flynn – I just can’t keep up. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>So I wondered if I could come in and see the head of department about the problem.</span>\""
+                    },
+                    {
+                        question: "You overhear a man calling a TV shop. Why is he calling?",
+                        vietnamese: "Bạn tình cờ nghe một người đàn ông gọi điện cho một cửa hàng TV. Tại sao anh ấy gọi?",
+                        options: [
+                            "to cancel an order",
+                            "to make a purchase",
+                            "to arrange a delivery"
+                        ],
+                        answer: 2,
+                        explanation: "\"Hello, I came into your shop a few days ago to look at TVs. You didn’t have the one I wanted in stock, but you said you could order it for me. My name’s Hogg, Jim Hogg. I paid when I was in the shop, and I got a message just now saying the TV’s arrived. When I came in the other day, your colleague said <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>one of your van drivers could drop it off one evening next week. I’m usually back from work after six, so …</span>\""
+                    },
+                    {
+                        question: "You hear a man talking about his decision to become a singer. His mother was unhappy about it because she didn’t:",
+                        vietnamese: "Bạn nghe một người đàn ông nói về quyết định trở thành ca sĩ. Mẹ anh ấy không vui về điều đó vì bà không:",
+                        options: [
+                            "want him to leave education.",
+                            "think it would suit him.",
+                            "like his kind of music."
+                        ],
+                        answer: 0,
+                        explanation: "\"I don’t come from a particularly musical family and it was very difficult to tell my parents I wanted to become a singer because they obviously didn’t want me to do it. I’m sure my mother would have been equally annoyed if I’d gone into classical music. She just thought music wasn’t a viable career choice. She’s always had faith in me as a person and knows I’m very determined and would succeed whatever I chose to do but <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>she wanted me to get some qualifications behind me first.</span> Once I started to become successful she was grudgingly happy for me, but she was still convinced it wouldn’t last.\""
+                    },
+                    {
+                        question: "You hear two friends talking about a meal. What do they agree about it?",
+                        vietnamese: "Bạn nghe hai người bạn nói về một bữa ăn. Họ đồng ý với nhau về điều gì?",
+                        options: [
+                            "It was expensive for the amount of food they got.",
+                            "The dishes they were given weren’t cooked properly.",
+                            "Some of the foods they were served didn’t go well together."
+                        ],
+                        answer: 2,
+                        explanation: "Man: Well, that meal was OK – I can’t manage a dessert. How was your fried fish, Anna? Anna: It was quite nice though it could have been hotter. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I’m not sure that salad went with it, either. I’d have preferred some cooked vegetables. Yours looked really good, with your steak. Man: Yeah – they would have been a much better combination with your meal.</span> Maybe we should’ve swapped – I like salad with steak. Anyway, it was a pretty reasonable price. Anna: Yours was – mine was a bit much, I reckon. Man: We both had a lot of food on our plates, though – can’t complain about that. Anna: I guess not."
+                    },
+                    {
+                        question: "They would like to compare the carnival celebrations in South America and the water festival in _____",
+                        vietnamese: "Họ muốn so sánh các lễ hội hóa trang ở Nam Mỹ và lễ hội nước ở _____",
+                        options: [
+                            "Thailand.",
+                            "Canada.",
+                            "India."
+                        ],
+                        answer: 0,
+                        explanation: "Student 2: Yeah, you know, like the carnival celebrations in South America <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>and the water festival in Thailand.</span>"
+                    },
+                    {
+                        question: "You hear two friends talking about a website. The man thinks that the website is:",
+                        vietnamese: "Bạn nghe hai người bạn nói về một trang web. Người đàn ông nghĩ rằng trang web này:",
+                        options: [
+                            "easy to use.",
+                            "helpful.",
+                            "interesting."
+                        ],
+                        answer: 0,
+                        explanation: "Woman: Did you have a look at that study skills website I told you about? Man: Yes, I did. Woman: And what did you think? Man: Well, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I had no trouble finding my way around it, which was good.</span> Woman: Is that all? Did you find any ideas you could use yourself? Man: Not really, I’m afraid. Woman: Oh dear, it sounds as if you found it a bit dull. Man: Well … it’s just that I’ve seen a lot of those ideas before. It’s hard for people to come up with anything new, I suppose. Woman: That’s true … if you come across a good one, you’ll let me know, won’t you? Man: Sure!"
+                    },
+                    {
+                        question: "You hear an office manager talking about her work. How does she feel about it?",
+                        vietnamese: "Bạn nghe một quản lý văn phòng nói về công việc của cô ấy. Cô ấy cảm thấy thế nào về nó?",
+                        options: [
+                            "interested in her new project",
+                            "confident that she can do it well",
+                            "satisfied with her staff"
+                        ],
+                        answer: 1,
+                        explanation: "\"You know how it is … as soon as you’ve finished one project, you have to get started on something else, and it’s often something completely different. I don’t find that a problem though, and I enjoy the fact that I can get it done effectively – after all, I’ve been in this job for a long time so I think I can say I know what I’m doing! I wish that was true of the people I’m working with – I reckon if I didn’t keep checking, they’d never get on with things! Though I guess I’m not feeling very motivated about this project either.\""
+                    },
+                    {
+                        question: "You hear a woman talking about a journey. How did she travel?",
+                        vietnamese: "Bạn nghe một người phụ nữ nói về một chuyến đi. Cô ấy đã đi bằng phương tiện gì?",
+                        options: [
+                            "by train",
+                            "by coach",
+                            "by boat"
+                        ],
+                        answer: 1,
+                        explanation: "\"Well I thought it was pretty uncomfortable, really . We had to be on board half an hour before we set off – I’ve no idea why – and then didn’t stop at a service station for four hours. Four hours, can you imagine? We couldn’t even get up to stretch our legs. We were just stuck in our seats, and when we did eventually stop, it was a rush to find a snack and a drink before we had to get on again. But it was cheap, and the new bridge means you don’t have to take those awful ferries, which is definitely a bonus!\""
+                    }
+                ]
+            },
+            p2: {
+                title: "P2: Điền từ / Số (Fill in the blanks)",
+                subtitle: "Gõ câu trả lời vào ô trống. Tự động kiểm tra sau khi hoàn tất tất cả ô trống của 1 bài.",
+                questions: [
+                    {
+                        title: "Bài 1: Water Festivals Questions",
+                        vietnamese: "Bài 1: Lễ hội Nước - Ghi không quá 3 từ hoặc 1 số cho mỗi câu trả lời.",
+                        instruction: "Write NO MORE THAN THREE WORDS OR A NUMBER for each answer.",
+                        questions: [
+                            { text: "a. How many countries do they know of where festivals involve water? [a]", type: "input", key: "1a", answer: "6|six" },
+                            { text: "b. What three meanings can water have? [b]", type: "input", key: "1b", answer: "life, wealth, luck" },
+                            { text: "c. How are the Carnival and the seasons linked? [c]", type: "input", key: "1c", answer: "by ancient traditions|ancient traditions" },
+                            { text: "d. What do water festivals celebrate? [d]", type: "input", key: "1d", answer: "new year" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> 6 (hoặc six), life, wealth, luck, by ancient traditions (hoặc ancient traditions), new year.",
+                        transcript: "Tutor: Hmm. Yes, that makes sense. Did you look into any other festivals?\nStudent 2: Yes, we did. What we're planning to do is more research into water festivals. We found that in Asian countries, where there aren't any carnival celebrations, there are still festivals that involve people splashing each other with water. Actually, we found references to them in Burma, Thailand, Vietnam, China and Japan, but we also found a reference to a water festival in Mexico. So we thought we'd look into that a bit more and see if we can find any similarities between these countries. Uhhh…. I mean, we realize that water is more than just a way of cooling people down in hot weather. It also has a lot of different religious meanings and purposes. For instance, we found that in some societies water can mean life or wealth or just luck.\nStudent 1: Yes. And another thing we found out is that these water festivals often celebrate the beginning of the new year, just like the original celebrations, hundreds of years ago before the carnival. So, umm… up to now we found that the carnival and the seasons are linked by ancient traditions and the water plays an important part in the celebrations."
+                    },
+                    {
+                        title: "Bài 2: University Clubs Table",
+                        vietnamese: "Bài 2: Bảng Câu lạc bộ Đại học - Nghe và hoàn thành bảng. Ghi không quá 2 từ hoặc 1 số.",
+                        instruction: "Listen and complete the table. Write NO MORE THAN TWO WORDS OR A NUMBER.",
+                        questions: [
+                            { text: "- Club: [a] , Fee: £20, Members: 60", type: "input", key: "2a", answer: "table tennis" },
+                            { text: "- Club: Cross country cycling, Fee: £ [b] , Members: [c] ", type: "multi-input", keys: ["2b", "2c"], answers: ["15|fifteen", "100|one hundred"] },
+                            { text: "- Club: Film and drama, Fee: £ [d] , Members: 12", type: "input", key: "2d", answer: "50|fifty" },
+                            { text: "- Club: [e] , Fee: £5, Members: 80", type: "input", key: "2e", answer: "street dance" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> table tennis, 15, 100, 50, street dance.",
+                        transcript: "Victoria: Hello. Are you the person to ask about joining a club?\nMark: Yes, I am. What would you like to know?\nVictoria: Well, I'm interested in several things. but I'd like to know more about the different clubs and how much they cost. I'm looking for a small club that's not too expensive.\nMark: OK. Have a look at this table. You can see the names of the clubs, the fees and the number of members. I'm afraid they aren't in any order. If you look at the top of the list, the first club is table tennis. That's one of our new clubs.\nVictoria: Oh, right. So the table tennis club costs £20. That's quite expensive.\nMark: Yes, it is a bit expensive. The cross country cycling club is cheaper, though. Membership fees are only £15, but on the other hand it's got 100 members.\nVictoria: The film and drama club costs a lot. doesn't it?\nMark: Yes, £50 is a lot. And that's probably why it only has 12 members. Ahhh... Is there any other club you think looks interesting? Look at the next one... street dance. Have you ever done any street dance?\nVictoria: No, I haven't, really.\nMark: It's the cheapest. It only costs £5."
+                    },
+                    {
+                        title: "Bài 3: Club Membership Application Form",
+                        vietnamese: "Bài 3: Đơn đăng ký thành viên Câu lạc bộ - Ghi không quá 2 từ hoặc 1 số.",
+                        instruction: "Write NO MORE THAN TWO WORDS OR A NUMBER.",
+                        questions: [
+                            { text: "Name: Victoria [a] ", type: "input", key: "3a", answer: "Mandeville" },
+                            { text: "Age: [b] ", type: "input", key: "3b", answer: "19|nineteen" },
+                            { text: "Address: 57, [c] , Atherton Park, Manchester, M46", type: "input", key: "3c", answer: "Bury Gardens" },
+                            { text: "Contact number: [d] ", type: "input", key: "3d", answer: "07942573279" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> Mandeville, 19, Bury Gardens, 07942573279.",
+                        transcript: "Mark: So can I have your full name, please?\nVictoria: Victoria Mandeville.\nMark: M-A-N-D-A-V-I-L\nVictoria: No, no. M-A-N-D-E-V-I-L-L-E.\nMark: Double L, E. Thank you. And how old are you?\nVictoria: Nineteen.\nMark: And your address?\nVictoria: 57 Bury Gardens. Atherton Park. Manchester, M46\nMark: How do you spell 'Bury'? B-E-R-R-Y?\nVictoria: No. It's B-U-R-Y\nMark: Right. B-U-R-Y. And do you have a contact number?\nVictoria: Yes. My mobile is: 07942 573 279\nMark: 07942 573 279?\nVictoria: Yes, that's right. Is that all?\nMark: Ahh... one more thing. Do you have an email address? Double L, E. Thank you. And how old are you?"
+                    },
+                    {
+                        title: "Bài 4: Notes on A Part-time Society",
+                        vietnamese: "Bài 4: Ghi chú về một Hội Part-time - Ghi không quá 2 từ và/hoặc 1 số cho mỗi câu trả lời.",
+                        instruction: "Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+                        questions: [
+                            { text: "Name of society: Leighton [a] ", type: "input", key: "4a", answer: "Club" },
+                            { text: "Want: [b] actors and singers (no experience required)", type: "input", key: "4b", answer: "male" },
+                            { text: "Transportation: shuttle services (need someone who is able to [c] )", type: "input", key: "4c", answer: "drive" },
+                            { text: "Membership fee (including [d] ):", type: "input", key: "4d", answer: "dinner" },
+                            { text: "Meeting time: 6:00-8:00 p.m every [e] ", type: "input", key: "4e", answer: "Tuesday" },
+                            { text: "Close time: during [f] ", type: "input", key: "4f", answer: "August" },
+                            { text: "Minimum joining age: [g] ", type: "input", key: "4g", answer: "16" },
+                            { text: "[h] authors looking for new experiences to write about in their books", type: "input", key: "4h", answer: "modern" },
+                            { text: "Charity: The children’s [i] will get the money raised by the annual dinner.", type: "input", key: "4i", answer: "hospital" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> Club, male, drive, dinner, Tuesday, August, 16, modern, hospital.",
+                        transcript: "Speaker 0: This is the Leighton society, how can I help.\nSpeaker 1: Hello I'm just phoning you because I'm interested in becoming a member of your society. I was wondering if you could give me some more information.\nSpeaker 0: Of course what would you like to know?\nSpeaker 1: First of all, I'd like to know where you hold the club meetings, as I'm not very mobile anymore and I'm looking for somewhere that's within walking distance of my house. Are you still down at the old boat house?\nSpeaker 0: No, we moved away from that a while ago, meetings are now held at another Club House\nSpeaker 1: Oh brilliant, that’s only five minutes away from me. Do you require members to have any skills or experience?\nSpeaker 0: No, there was no experience required. We have plenty of female singers and actresses, but we don't have many men who can play the male roles We are looking to resolve this and are especially interested in recruiting male actors and singers.\nSpeaker 1: I've never sung professionally but I'm very keen on it. And I’ve been told I'm talented so I think this would be a good fit. Do you organize coaches to transport members to practice at the theater?\nSpeaker 0: Unfortunately the club does not have sufficient funds to organize transportation, so this is something we're working towards. We are currently looking for members who can drive so that we can organize carsharing.\nMembers who are able to shuttle people in their cars will obviously be compensated for their petrol usage.\nSpeaker 1: I don't drive but I'll be happy to contribute some money in order to use the shuttle services.\nSpeaker 0: Yes, that is no problem. Are you aware of when the meetings take place?\nSpeaker 1: No, I couldn't find a meeting times on your website.\nSpeaker 0: We hold meetings from six to eight PM every Tuesday\nSpeaker 1: Oh, that's lucky. I go to a debating club every Wednesday so I'm glad that it's on a different night so I can attend both. Do you operate year round?\nSpeaker 0: We used to close during December for the Christmas period, but we found that a lot of members wanted to continue that practices during this time. We operate for most of the year but we do however close on August, because the what they get so hot that we are unable to practice comfortably. This may change when we have enough funds to operate the air conditioning. Before you hear the rest of the conversation you have some time to look at questions six to ten.\nSpeaker 1: Okay, I also wanted to ask how much the membership fee is and what is included with it.\nSpeaker 0: Membership fee is inexpensive and it includes many benefits that certainly make the costs worth it.\nSpeaker 0: For example, we hold an annual events where members can meet each other and converse about topics that they have in common. We find that this is very popular as the dinner is truly superb and included with your membership fee.\nSpeaker 1: Wow that sounds great, and how much does membership cost?\nSpeaker 0: We have a couple of membership rates depending on your age and situation. Employed member under the age of thirty three is forty pounds what it cost sixty pounds for members aged between thirty and sixty. Which of these categories you fit into?\nSpeaker 1: I don't fit into either of those. I'm sixty five years old and retired so I'm no longer employed.\nSpeaker 0: That's not a problem at all. You qualify for the lowest price membership fee of twenty five pounds, which applies to those who are either unemployed or retired.\nSpeaker 1: Wow, that's really affordable. I was thinking of bringing my grandson along to some of the practices so what what the membership costs for him, he's fourteen.\nSpeaker 0: I'm afraid that the club is for adults only. That's just to say we don't allow members who were age sixteen and under. He is welcome to join in two years’ time day.\nSpeaker 1: That's a shame. I guess I can wait and buy him a membership for his birthday present.\nSpeaker 0: Yes, was a good idea.\nSpeaker 1: I was hoping I could bring him with me so I have someone there to talk to, I'm worried I won't have anything in common with the other members.\nSpeaker 0: I'm sure you'll fit in just fine. All our members are very friendly and interested in culture and music. Most of the people involved are modern writers looking for new experiences to write about in their books. You could read some of their book so you have something to discuss with them.\nSpeaker 1: That's a good suggestion. I'll definitely do that. I'm really looking forward to attending the annual dinner so I can meet new people and hopefully make some friends.\nSpeaker 0: Absolutely. Everyone has a great night and it’s all for charity as all of the money raised from this event is donated to the children's hospital, so they can buy toys and clothes.\nSpeaker 1: Wow what a great cause. Well I will definitely be popping in soon to arrange my membership. Thank you for all of your help.\nSpeaker 0: Not problem at all. Goodbye.\nSpeaker 1: Bye"
+                    },
+                    {
+                        title: "Bài 5: Job Enquiry (Freddie Lea)",
+                        vietnamese: "Bài 5: Hỏi việc làm (Freddie Lea) - Ghi không quá 2 từ và/hoặc 1 số cho mỗi câu trả lời.",
+                        instruction: "Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+                        questions: [
+                            { text: "Location: [a] Island", type: "input", key: "5a", answer: "Jamieson" },
+                            { text: "Starting date: [b] ", type: "input", key: "5b", answer: "11th July" },
+                            { text: "Qualities required: the ability to [c] ", type: "input", key: "5c", answer: "sing" },
+                            { text: "Duties: Offer table service / Look after [d] ", type: "input", key: "5d", answer: "children" },
+                            { text: "Benefits: free [e] / a(n) [f] will be provided", type: "multi-input", keys: ["5e", "5f"], answers: ["transport", "meal"] },
+                            { text: "Need to take: the application form with a/an [g] ", type: "input", key: "5g", answer: "photo" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> Jamieson, 11th July, sing, children, transport, meal, photo.",
+                        transcript: "Good afternoon. Palm resort.\nGood afternoon. I am ringing about the job I understand you have vacant. Oh yes. I'd like to find out some more information if I may.\nYes of course. Can I take your name?\nIt's Freddie Lee.\nOkay, Freddie. What would you like to know?\nFirst of all I'd like to know where your resort is located.\nIt's near the city center on Jamieson island. That's J A M I E S O N. Brilliant. That's only five minutes from me. I finish at my college on the 12th of May, so I'll be available for work from that date. Will there be any vacancies at that time?\nWell summer is our busiest season, beginning on the 11th July, so that's when you will be starting.\nSounds good. And are there any age limitations?\nThat would depend on the place you're applying for. How old are you?\nI'm 17.\nWell we require our bartenders to be 18 or older, which means you would be working as a waiter. There are four vacancies. They were originally six. However, we have since two of these.\nOkay great. Could I ask about the pay?\nWe're offering five pounds fifty two pence an hour.\nThat's very good. My last job was four pounds forty five an hour. And can I also ask about what qualities you're looking for. Like any particular skills or experience?\nWe don't normally require applicants to have any past experience. However during the summer season we have weekly shows in which our waiters are asked to perform routines are very simple. So no dancing skills are needed however you will need to be able to sing I have never sung professionally but I am keen on it and have been told that I'm talented. So I think this will be a good fit. Are there any other duties that I'd be responsible for?\nAs a waiter, you'll have a few different duties. We offer a table service so you'll have to take food orders from customers and carry the food from the kitchen to their tables. We like to give our customers a relaxed experience, so we'll also need you to supervise and take care of their children\nI have a baby sitter so I'm very comfortable doing that. Is there a play area for them in the resort?\nUnfortunately, there is no facility for children here at the resort. But there is a large playground just down the road.\nSo I would just walk the children down to the playground each day?\nNo, the road is very busy and the pavements are so narrow that it's unsafe to take the children for walks there.\nIt would be very advantageous if you could drive, so that you can safely strap the children into the back seat and transport them back and forth.\nI'm currently taking driving lessons. So if all goes well I should have my permit by the time I begin work.\nWe feel it's pretty good and we also offer some good fringe benefits for our employees.\nReally?\nWell because of the difficulties of getting public transport. If you're working after 10 o'clock we drive you home.\nOkay that sounds fine.\nDo you have a staff room where I would be able to eat my pack lunches?\nAll of our employees eat in the dining hall once our customers have finished eating their lunch.\nWe like to make sure that our employees are well nourished, so we would provide you with a meal every lunchtime. There is no need to bring in a pack lunch.\nWow that's good to know. I think that's all of the information that I needed. I'll be sure to post my application to you later today.\nOkay sure. Once we have looked over your application we may ask you to come for an interview. We normally hold our interviews on Fridays. However, the manager is taking a long weekend this week. So the interview would be on Thursday. Is that okay for you?\nThat's good for me. Fine. Ten thirty a.m.. Yes fine. Would 10 o'clock be okay?\nPerfect. And could you bring along a reference letter from your employer?\nYes. That's fine. No problem. Could you tell me what else I have to do?\nWell, you need to come into the desk and fill out some forms. We need a document for ID, so a bank statement would be fine.\nI've got that. And what else?\nWell you need to bring a photo with you. Having said that it will be also a good idea for you to attach it to your application. This will help us to distinguish your application from the others.\nOkay. No problem. I have a couple of spares from when I renewed my passport.\nWe look forward to seeing you.\nOkay. Thank you so much. You've been very helpful.\nNo problem. Goodbye."
+                    },
+                    {
+                        title: "Bài 6: Notes on Animal Senses",
+                        vietnamese: "Bài 6: Ghi chú về Giác quan của Động vật - Ghi không quá 2 từ và/hoặc 1 số cho mỗi câu trả lời.",
+                        instruction: "Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+                        questions: [
+                            { text: "Some animals can smell odors such as [a] recognized by the human nose.", type: "input", key: "6a", answer: "carbon dioxide|CO2" },
+                            { text: "Queen bees... use their feet to keep [b] over the colony.", type: "input", key: "6b", answer: "control" },
+                            { text: "Sound... can be recognized by beetles without ears by using their [c] .", type: "input", key: "6c", answer: "feet" },
+                            { text: "Snakes are able to search for food by detecting [d] from the mouths of their prey.", type: "input", key: "6d", answer: "heat" },
+                            { text: "After its prey is killed, a snake stores food in its [e] and hibernates.", type: "input", key: "6e", answer: "stomach" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> carbon dioxide (hoặc CO2), control, feet, heat, stomach.",
+                        transcript: "Good day ladies and gentlemen, welcome to the second lecture in our series on animal senses. Today I'll be comparing the sensory systems of different species and discussing how these senses enable them to explore their environment. When it comes to the sense of smell you may think that human beings have powerful and well-evolved sensory systems. However some animals have a sense of smell that is far more powerful than ours, dogs for example have a sense of smell that is 40 times greater than a human's and can distinguish 220 kinds of smell. Some animals can even smell odors that are undetectable by the human nose, such as carbon dioxide. There are also animals that have a relatively weak sense of smell. For example, there are species of beetles that can recognize the odors of certain plants but not others. The bee is an interesting example to examine in reference to smell because they experience this sense via their antennae.\nBumblebees have stings but it's rare that they actually use this weapon when a bee feels threatened it will use its legs to signal and warn others about the threat before it stings. This is called a signaling posture and involves the bee lifting its two back legs into the air. Within any hive there is a hierarchy with the queen bee at the top, the queen bee is able to control the colony by monitoring its movement through her feet. The queen bee is the only reproductive female in the entire colony and she is also able to sting multiple times, unlike the worker bees that will die if they sting. In the insect world scent can also be used to facilitate mating as females decide whether or not to mate with a male depending on the quality of his scent. One such example of this is the female butterfly who will only mate with the male butterfly that produces the strongest pheromones.\nThis is how the species ensures that only the best genes are perpetuated in order to create the strongest offspring. Next, we move on to the hearing sense of beetles interestingly beetles do not have ears but instead use their feet to detect vibrations caused by sound. This is particularly useful when searching for food among the trees in which they live as they are able to detect the location and movement of their prey by monitoring vibrations in the woodlands. The final sense that we'll be looking at today is sight, snakes are a particularly interesting case study as they do not see shapes and colors as humans do but instead hunt their prey by detecting the heat radiating from their mouths. This makes them incredibly effective predators as they are able to zero in on their prey very quickly and efficiently. From a distance a snake is able to locate the heat radiating from a mouse for example and upon moving closer will be able to determine its bodyshape. This can help prevent the snake from attempting to attack prey that is too large for it. Once a snake has killed and eaten its prey it goes into a state of hibernation. Whereby all of its energy is directed towards digesting the food stored in its stomach. Depending on the size of the snake and its prey this hibernation can last from hours to days.\nOnce fully fed a large snake will not need to eat again for the next couple of weeks. During the breeding season however female snakes will feed more frequently. The heat detection of a snake is very complex and can be even more effective than the vision of a human. It not only uses heat to determine the location of its prey but before it commits to hunt it will also use the heat to calculate how much distance it has to travel in order to reach it. This prevents the snake from wasting energy hunting prey that is too far away to catch."
+                    },
+                    {
+                        title: "Bài 7: Library Processes",
+                        vietnamese: "Bài 7: Quy trình Thư viện - Ghi không quá 3 từ cho mỗi câu trả lời.",
+                        instruction: "Write NO MORE THAN THREE WORDS for each answer.",
+                        questions: [
+                            { text: "- What do you need to scan first? [a]", type: "input", key: "7a", answer: "student ID card|ID card" },
+                            { text: "- What does the scanner do when you scan a book? [b]", type: "input", key: "7b", answer: "makes a beep|sound|its beep|beep" },
+                            { text: "- What does the system do at the end? [c]", type: "input", key: "7c", answer: "prints a ticket" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> ID card (hoặc student ID card), makes a beep (hoặc sound, beep), prints a ticket.",
+                        transcript: "Chen: Thank you very much, Lily. So how do I borrow a book?\nLily: That's simple, too. When you go to the library you'll have to take your student ID card. When want to borrow a book, you take it downstairs to the scanner. Then, scan your ID card first. Then, open the book and slide it under the scanner until it makes a sound.. a short beep. And that's all you have to do... Oh, sorry, I forgot. At the end the system prints out a ticket. It's a good idea to keep it for a while, just in case you have a problem with your loan.\nChen: Thanks again, Lily, You've been really kind ... (fades out)"
+                    },
+                    {
+                        title: "Bài 8: Properties in Accommodation",
+                        vietnamese: "Bài 8: Bất động sản cho thuê - Ghi không quá 2 từ và/hoặc 1 số cho mỗi câu trả lời.",
+                        instruction: "Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+                        questions: [
+                            { text: "Phone number: [a] ", type: "input", key: "8a", answer: "208 613 2978|2086132978" },
+                            { text: "Email address: richard@ [b] co.uk", type: "input", key: "8b", answer: "visiontech" },
+                            { text: "Occupation: a local [c] ", type: "input", key: "8c", answer: "doctor" },
+                            { text: "no [d] required", type: "input", key: "8d", answer: "furniture" },
+                            { text: "a 2-bedroom apartment wanted (must have its own [e] )", type: "input", key: "8e", answer: "garage" },
+                            { text: "a/an [f] in the kitchen is preferable", type: "input", key: "8f", answer: "fridge" },
+                            { text: "Preferred location: near a/an [g] ", type: "input", key: "8g", answer: "school" },
+                            { text: "Maximum rent: [h] dollars per month", type: "input", key: "8h", answer: "950" },
+                            { text: "Other requests: the accommodation has to be [i] in the daytime", type: "input", key: "8i", answer: "quiet" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> 208 613 2978, visiontech, doctor, furniture, garage, fridge, school, 950, quiet.",
+                        transcript: "Agent: Fairfield Rentals. Andrew Williams. How can I help you?\nWoman: Oh hello. I’m calling from the UK – um, my family are moving to Canada early next year, and we’re hoping to find somewhere to rent in Fairfield for the first six months while we settle in.\nAgent: Right, I see. Well, let’s get your details.\nWoman: Yes, my name’s Jane Ryder.\nAgent: OK, Jane. And can I have a phone number – the best number to get you on?\nWoman: Well, that’d probably be our home number – So 0044 for the UK, and then it’s 208 613 2978.\nAgent: Alright. And an email address, please, so we can send you out all the information and forms.\nWoman: I think it’s best if I give you my husband’s email – he’s sitting in front of a computer all day so he can print stuff off and get it back to you sooner than I could. It’s richard@visiontech.co.uk. I’ll just spell the company name for you.\nWoman: That’s V-I-S-I-O-N-T-E-C-H.\nAgent: Great. And we have a question here about occupation.\nWoman: Richard’s an IT specialist for an advertising company. They’re transferring him to their Fairfield branch.\nAgent: Actually, just your job for now, thanks.\nWoman: Me? I’m a doctor at the hospital in our town.\nAgent: OK, I’ll put that down. Now, what kind of accommodation are you looking for? House, apartment?\nWoman: An apartment, probably, as long as it has two bedrooms. There’ll be me, my husband and our ten-year- old son.\nAgent: And so with an apartment, you’re less likely to get a garden.\nWoman: That’s OK\nAgent: But what about a garage – is that something you’ll want the apartment to have?\nWoman: Yes, that’s definitely important.\nAgent: OK, just a moment, I’ll just make a note of that.\nWoman: But – er before we go on – I should probably say now that what we don’t need is any furniture – because we’ll be shipping all that over, and I don’t really want to pay for storage while we’re waiting to buy a house.\nAgent: Not a problem. I’ll make a note of that.\nWoman: Actually, though, just thinking about the kitchen, what can I expect from a rental property? I mean, what kind of equipment is provided?\nAgent: Well, the normal thing is that you get a stove – I think that’s a cooker in British English.\nWoman: OK, good to know, but how about a fridge? We’ll be selling ours before we come, so if possible, we’d like the apartment to have one for when we arrive.\nAgent: I can certainly add that to the form. If there’s any other whiteware that you need – like a dishwasher for example, there are plenty of stores here that’ll arrange delivery on the same day as purchase.\nWoman: Thanks. Hopefully we won’t need to buy too many things.\nAgent: Now, how about location? Have you done any research into the Fairfield area?\nWoman: Not that much so far.\nAgent: Well, you mentioned you have a boy – I imagine you’d like to be fairly close to a school.\nWoman: Good idea. That would help. What’s public transport like in Fairfield? Is it easy to get around?\nAgent: The bus service is pretty comprehensive – there are plenty of local routes, services into the city and out of town.\nWoman: OK, and for a two-bedroom apartment – what sort of rent should we expect to pay?\nAgent: Well, looking at the properties we have at the moment, prices start from around £730 per month, and – depending on the area – can go up to £1,200.\nWoman: That’s too much. Something halfway would be better.\nAgent: So, would your limit be, say, £950?\nWoman: I’d say so, yes.\nAgent: Can I ask if you smoke or if you have any pets?\nWoman: No to both questions. But I do have one more request, please.\nAgent: Yes?\nWoman: Well, I’ve also been offered a job – at Victoria General Hospital – and I suspect I’ll be working nights occasionally – so what I really need from any apartment is for it to be quiet – so I can catch up on sleep if necessary, during the day.\nAgent: Congratulations on the job offer. I’ll add your request to the form. Well, what I’ll do is compile a list of suitable properties for you and send them via email. Um, can I just ask – how did you hear about us? Obviously not from our commercials if you’re living in the UK.\nWoman: Actually, it was a friend of ours. He spent a few months in Fairfield a couple of years ago and he pointed us in the direction of your website.\nAgent: Well, it’s good to be recommended. So, what I’ll do is…"
+                    },
+                    {
+                        title: "Bài 9: Presentation Guidelines",
+                        vietnamese: "Bài 9: Hướng dẫn Thuyết trình - Ghi không quá 2 từ hoặc 1 số cho mỗi câu trả lời.",
+                        instruction: "Write NO MORE THAN TWO WORDS OR A NUMBER for each answer.",
+                        questions: [
+                            { text: "- The actual talk will last for [a]", type: "input", key: "9a", answer: "7 minutes|seven minutes" },
+                            { text: "- Students can put [b]", type: "input", key: "9b", answer: "some images|images|some photos|photos" },
+                            { text: "- The slides must all have the [c]", type: "input", key: "9c", answer: "same style" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> 7 minutes, some images, same style.",
+                        transcript: "Tutor: Have you got any other questions?\nHarry: Ummm.... yes. The presentation should be for 10 minutes, is that right?\nTutor: Yes. But ten minutes in total, including three minutes for questions. So you'll only talk for seven minutes.\nAnne-Marie: That's only two minutes each! We won't be able to say much in that time, at all!\nTutor: That's why you have to plan what you're going to say carefully and make sure you only include the most important information, For instance, you won't have time to give examples. But you could put some images on your slides that show examples, without spending time talking about them.\nLaila: Hey, that's a good idea. Arid the audierice can look at them while we talk\nTutor: And another thing.... make sure all the slides have the same style, You should get together and agree on one style for the whole presentation.\nHarry: OK, we'll do that too. Thanks a lot for your help."
+                    },
+                    {
+                        title: "Bài 10: Sentence Completion - Finding Books",
+                        vietnamese: "Bài 10: Hoàn thành câu - Tìm sách - Hoàn thành các câu. Ghi không quá 2 từ.",
+                        instruction: "Complete the sentences. Write NO MORE THAN TWO WORDS.",
+                        questions: [
+                            { text: "- Students may find information on food in books about cookery, history, or [a]", type: "input", key: "10a", answer: "entertainment" },
+                            { text: "- First look up the title in the [b]", type: "input", key: "10b", answer: "online catalogue" },
+                            { text: "- Students can use the [c] for looking up the title.", type: "input", key: "10c", answer: "library’s computers|computers" },
+                            { text: "- The class mark is one or two letters and [d]", type: "input", key: "10d", answer: "a number" },
+                            { text: "- The [e] shows you where to look for the books.", type: "input", key: "10e", answer: "plan" }
+                        ],
+                        explanation: "<strong>Từ khóa cần điền:</strong> entertainment, online catalogue, computers, a number, plan.",
+                        transcript: "Chen: Now can you show me how to find a book?\nLily: Well, the library's very big, and the books on food could be under cookery, or they could be in history, or even entertainment. So, the first thing to do is to look the book up in the online catalogue.\nChen: Where do I do that?\nLily: It's easy... there are lots of computers in the library for that.\nChen: OK, I see.\nLily: Right, you look up the title first. When you've found the book, you'll see it has a class mark next to it. The class mark is one or two letters and a number... Make a note of the class mark... then look it up on the plan of the library. The plan shows you exactly what section of the library the books are actually kept in."
+                    }
+                ]
+            },
+            p3: {
+                title: "P3: Chọn nhiều đáp án (Multiple Response)",
+                subtitle: "Chọn đúng số lượng đáp án được yêu cầu. Tự động chấm khi chọn đủ.",
+                questions: [
+                    {
+                        question: "Which TWO activities does Victoria enjoy? (Choose TWO letters from A-F)",
+                        vietnamese: "Victoria thích hai hoạt động nào? (Chọn HAI chữ cái từ A-F)",
+                        options: [
+                            "A. cycling",
+                            "B. photography",
+                            "C. tennis",
+                            "D. pop and group singing",
+                            "E. contemporary dance",
+                            "F. film and drama"
+                        ],
+                        answers: [1, 4], // B, E
+                        required_count: 2,
+                        explanation: "<strong>Các lựa chọn đúng:</strong> B, E\n\n<strong>Transcript:</strong>\nMark: OK. Shall we start with your interests? What do you like doing best?\nVictoria: Ummm... well, I like photography. I've got a professional camera. So I take it quite seriously. But I can't really imagine belonging to a club to take photographs. I usually go on long walks on my own and take photos. So I like photography, but I wouldn't want to join a club to do it.\nMark: OK, so what else do you like doing? Running?\nVictoria: Oh no! Not running! I like walking, but I hate running. I'm afraid the running club isn't for me or the cycling club.\nMark: And film and drama?\nVictoria: Ahh, no... It's far too expensive. But I do like yoga. I've practised yoga on and off for years. How many members does the yoga club have?\nMark: It's always a small group. A lot of people sign up at the beginning of term, but they stop going after a few weeks. So they're left with a few regular members every year.\nVictoria: That sounds good. I think I'd like to join the yoga club. And what about the contemporary dance club? Is it expensive?\nMark: Contemporary dance? No, it's not expensive. $10 for the term... Do you like dance?\nVictoria: Well, I've never tried contemporary dance, but I do like jazz and tap dance. How often does the group meet?"
+                    }
+                ]
+            },
+            p4: {
+                title: "P4: Dán nhãn bản đồ (Labelling a Plan)",
+                subtitle: "Điền chữ cái (A-E) tương ứng vào chỗ trống. Tự động kiểm tra sau khi điền đủ.",
+                questions: [
+                    {
+                        title: "Library Plan",
+                        vietnamese: "Bạn sẽ nghe Lily giải thích cho Chen cách sử dụng thư viện. Gắn nhãn sơ đồ thư viện. Viết chữ cái đúng (A-E) cho mỗi câu trả lời.",
+                        instruction: "You will hear Lily explaining to Chen how to use the library. Label the plan of the library. Write the correct letter (A-E) for each answer.",
+                        list: [
+                            "A. PC Zone",
+                            "B. Library Café",
+                            "C. Cookbooks",
+                            "D. Travel",
+                            "E. Silent Zone"
+                        ],
+                        planText: `       [ Ground Floor ]                             [ First Floor ]
+          North door
+       +--------------+                            +--------------+
+       |    Lobby     |                            |  [c] ....... |
+    +--+              +--+                      +--+              +--+
+    |                    | Lift                 |                    | Lift
+ [b] .                 Stairs                   |                  Stairs
+    |   [a] ......       |                      |                    |
+    +--+              +--+                      +--+              +--+
+       |              |                            |  [d] ....... |
+       +--------------+                            +--------------+
+            South                                       South`,
+                        questions: [
+                            { key: '4a', answer: 'A' },
+                            { key: '4b', answer: 'B' },
+                            { key: '4c', answer: 'E' },
+                            { key: '4d', answer: 'C' }
+                        ],
+                        explanation: "<strong>Các đáp án:</strong> [a] A, [b] B, [c] E, [d] C",
+                        transcript: "Chen: Excuse me, Lily. Could you help me? You know we've got an essay to write about eating customs across the world?\nLily: Yeah. We have to borrow some books, don't we?\nChen: Yes, but I missed the library training. Do you think you could show me how to find the books and how to take them out?\nLily: Sure, no problem. Shall I tell you about the different parts of the library, first?\nChen: Oh yes.... Thank you very much.\nLily: OK, then, let's look at the plan of the library. Here, you can see the main door in the north that leads into the lobby, in the middle of the building. there's a big open PC zone. The lift and stairs are on the left as you go in, and on the other side of the building there's the library cafe. That part of the library is pretty sociable... It's a good place to study with friends.\nChen: I really prefer to study alone. Is there anywhere in the library I can go?\nLily: Oh, if you like studying in a quiet place, it's better to go upstairs, to the silent zone. As you come out of the lift, or up the stairs, you'll see a section on your right, facing north, which is closed off. That's the silent zone. On the other side, facing south, are the bookshelves with all the cookbooks.... [fade]"
+                    }
+                ]
+            },
+            p5: {
+                title: "P5: True / False / Not Given",
+                subtitle: "Chọn True, False hoặc Not Given. Audio kèm Script & Giải thích đáp án.",
+                questions: [
+                    // SCENARIO 1: ZAK'S SPORTS BAG
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        fullTranscript: "Maria: Hi, Zak, this is Maria. I got a message about your sports bag but I didn’t understand it. \nZak: Thanks for phoning, Maria. I’m still in hospital, so can you get my sports bag from school? It’s blue, not black and white like my school bag. \nMaria: OK. What size is it? \nZak: It’s quite large and it’s a good bag. I only bought it a few weeks ago, but it needs a wash! \nMaria: Where is it? \nZak: Well, I had it on the sports field with me, but Tim took it to the classroom after my accident. I left it there when they brought me to hospital. \nMaria: Is there anything inside it? \nZak: Only my school uniform. I’m wearing my watch, and I never carry money in it. \nMaria: OK. Shall I bring it to the hospital after school? \nZak: I’m going home this afternoon. Can you take it there this evening? I’ll need it for tomorrow morning. \nMaria: Sure. How did you hurt yourself anyway? \nZak: It was after football. We were running back to the changing rooms when I fell. \nMaria: Oh dear!",
+                        question: "Maria understood the message about the sports bag.",
+                        vietnamese: "Maria đã hiểu tin nhắn về chiếc túi thể thao.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nMaria: Hi, Zak, this is Maria. I got a message about your sports bag but I didn’t understand it."
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Zak’s sports bag is quite small.",
+                        vietnamese: "Chiếc túi thể thao của Zak khá nhỏ.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nZak: It’s quite large and it’s a good bag."
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Zak bought the sports bag a few months ago.",
+                        vietnamese: "Zak đã mua chiếc túi thể thao vài tháng trước.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nZak: I only bought it a few weeks ago, but it needs a wash!"
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Maria will take the sports bag to the hospital after school.",
+                        vietnamese: "Maria sẽ mang túi thể thao đến bệnh viện sau giờ học.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nMaria: Shall I bring it to the hospital after school?\nZak: I’m going home this afternoon. Can you take it there this evening?"
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Zak was running to the changing rooms when he fell.",
+                        vietnamese: "Zak đang chạy về phòng thay đồ thì bị ngã.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nZak: We were running back to the changing rooms when I fell."
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Zak didn’t feel much pain when he fell.",
+                        vietnamese: "Zak không cảm thấy đau lắm khi ngã.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 2, // NOT GIVEN
+                        explanation: "The transcript does not mention whether he felt much pain or not, only that he fell and had an accident."
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Zak’s sports bag is black and white.",
+                        vietnamese: "Chiếc túi thể thao của Zak có màu đen và trắng.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nZak: It’s blue, not black and white like my school bag."
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Tim took the sports bag to the classroom after Zak’s accident.",
+                        vietnamese: "Tim đã mang túi thể thao vào lớp học sau tai nạn của Zak.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nZak: Tim took it to the classroom after my accident."
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "There is money inside Zak’s sports bag.",
+                        vietnamese: "Có tiền bên trong túi thể thao của Zak.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nZak: Only my school uniform... and I never carry money in it."
+                    },
+                    {
+                        context: "SCENARIO 1: ZAK'S SPORTS BAG",
+                        question: "Zak needs his sports bag for the next morning.",
+                        vietnamese: "Zak cần túi thể thao của mình cho buổi sáng hôm sau.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nZak: I’ll need it for tomorrow morning."
+                    },
+
+                    // SCENARIO 2: JAMIE'S NEW FLAT
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        fullTranscript: "Jamie: Hi, Mum! I've decided to move from my room at the university and into a flat with some friends. \nMum: Is the flat near the university, Jamie? \nJamie: About twenty minutes by bicycle and there are buses every half hour. But I'll walk through the park and have breakfast at a café there with my friends. \nMum: Will the flat be quiet so you can study? \nJamie: There's a shoe shop downstairs, but it's never busy, and there's not much traffic. \nMum: Is it expensive? \nJamie: Two hundred pounds a week, but there are five of us, so that's forty pounds each, which isn't bad. \nMum: Good. Does the flat have a nice kitchen? \nJamie: Well, the fridge is old and the cooker's a bit small, but that doesn't matter - we can't cook! Can I still use your washing machine, Mum, because there isn't one there? \nMum: Of course. When will you move? \nJamie: On Saturday. \nMum: If you can wait until the next day, Dad and I will help you, so you're ready for classes on Monday. \nJamie: OK. Thanks, Mum!",
+                        question: "Jamie is moving into a flat with some friends.",
+                        vietnamese: "Jamie đang chuyển đến một căn hộ với vài người bạn.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nJamie: I've decided to move from my room at the university and into a flat with some friends."
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "The flat is located far from the university.",
+                        vietnamese: "Căn hộ nằm cách xa trường đại học.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nMum: Is the flat near the university, Jamie?\nJamie: About twenty minutes by bicycle..."
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "There is a lot of traffic near the flat.",
+                        vietnamese: "Có rất nhiều xe cộ qua lại gần căn hộ.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nJamie: ...and there's not much traffic."
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "There are five people sharing the flat.",
+                        vietnamese: "Có 5 người cùng chia sẻ căn hộ.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nJamie: ...there are five of us, so that's forty pounds each..."
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "Jamie will still be able to use his mum’s washing machine.",
+                        vietnamese: "Jamie vẫn có thể sử dụng máy giặt của mẹ mình.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nJamie: Can I still use your washing machine, Mum...?\nMum: Of course."
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "Jamie is planning to move on the weekend before the start of the school week.",
+                        vietnamese: "Jamie dự định chuyển nhà vào cuối tuần trước khi tuần học bắt đầu.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nJamie: On Saturday.\nMum: If you can wait until the next day, Dad and I will help you, so you're ready for classes on Monday."
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "The flat has a modern kitchen with new appliances.",
+                        vietnamese: "Căn hộ có một nhà bếp hiện đại với các thiết bị mới.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nJamie: Well, the fridge is old and the cooker's a bit small..."
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "Jamie and his friends can cook in the flat.",
+                        vietnamese: "Jamie và bạn bè của anh ấy có thể nấu ăn trong căn hộ.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nJamie: ...that doesn't matter - we can't cook!"
+                    },
+                    {
+                        context: "SCENARIO 2: JAMIE'S NEW FLAT",
+                        question: "Jamie’s friends will help with moving.",
+                        vietnamese: "Bạn bè của Jamie sẽ giúp anh ấy chuyển nhà.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 2, // NOT GIVEN
+                        explanation: "Đoạn hội thoại không đề cập đến việc bạn bè của Jamie sẽ giúp anh ấy chuyển nhà. Chỉ có bố mẹ đề nghị giúp đỡ."
+                    },
+
+                    // SCENARIO 3: SARAH AND JIM
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        fullTranscript: "Sarah: Hi, Jim. I like your walking shoes. I haven’t seen any like them in England before. \nJim: They’re Italian, Sarah. I got them for my holiday in Austria last month. \nSarah: I need some like them, because I’m going to go there too. \nJim: Not many shops sell them. I got mine at the market, but they may have some at the new supermarket. \nSarah: How much were they? \nJim: I think they usually cost sixty-eight pounds, but mine were only forty-eight – so I paid twenty pounds less. I was really pleased. \nSarah: I’ll get some this afternoon. Is there anything else special I should take? \nJim: Well, pack a hat, because the sun can be strong in the mountains. I took a sweater and a jacket, but I never needed them. \nSarah: Anything else? \nJim: Take lots of T-shirts, one for each day you’re going to go walking. \nSarah: That’s five days of my week’s holiday. And what about taking a phone? \nJim: Well, there’ll be one in your hotel, if you want to call home. But take yours, because then you can call someone if you get lost in the mountains. \nSarah: Thanks, Jim.",
+                        question: "Jim bought his walking shoes in England.",
+                        vietnamese: "Jim đã mua đôi giày đi bộ của mình ở Anh.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nJim: They’re Italian, Sarah. I got them for my holiday in Austria last month."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Sarah plans to go to Austria soon.",
+                        vietnamese: "Sarah dự định sẽ sớm đi Áo.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nSarah: I need some like them, because I’m going to go there [Austria] too."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Jim paid sixty-eight pounds for his walking shoes.",
+                        vietnamese: "Jim đã trả 68 bảng Anh cho đôi giày đi bộ của mình.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nJim: I think they usually cost sixty-eight pounds, but mine were only forty-eight..."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Sarah will need to bring her walking shoes from England.",
+                        vietnamese: "Sarah sẽ cần mang giày đi bộ của mình từ Anh.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 2, // NOT GIVEN
+                        explanation: "She mentions getting them in the afternoon, but it isn't explicitly stated she brings them from England (though implied she is in England, the strict answer per rules is NG if not directly supported as 'needing to bring them from England'). However, based on the prompt's provided answers, this is NOT GIVEN."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Jim suggests that Sarah take a phone with her on her holiday.",
+                        vietnamese: "Jim gợi ý Sarah nên mang theo điện thoại trong kỳ nghỉ của mình.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nJim: But take yours, because then you can call someone if you get lost..."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Jim recommends Sarah to take a hat for her trip.",
+                        vietnamese: "Jim khuyên Sarah nên mang theo mũ cho chuyến đi của mình.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nJim: Well, pack a hat, because the sun can be strong..."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Jim needed a sweater and jacket during his holiday in Austria.",
+                        vietnamese: "Jim cần một chiếc áo len và áo khoác trong kỳ nghỉ ở Áo.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nJim: I took a sweater and a jacket, but I never needed them."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Jim suggests Sarah takes one T-shirt for each day of walking.",
+                        vietnamese: "Jim gợi ý Sarah mang theo một chiếc áo phông cho mỗi ngày đi bộ.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nJim: Take lots of T-shirts, one for each day you’re going to go walking."
+                    },
+                    {
+                        context: "SCENARIO 3: SARAH AND JIM",
+                        question: "Sarah will be going walking for five days of her holiday.",
+                        vietnamese: "Sarah sẽ đi bộ trong 5 ngày của kỳ nghỉ.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nSarah: That’s five days of my week’s holiday."
+                    },
+
+                    // SCENARIO 4: NICK AND HELEN'S BAND PRACTICE
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        fullTranscript: "Helen: Sam, you know I sing in Nick’s band? \nSam: Mmm. He plays drums, doesn’t he, Helen? \nHelen: Yes. Well, we need another guitar player. How about you? \nSam: Sure! \nHelen: Nick wants to hear you play first. Are you free on Wednesday? \nSam: Sorry. How about the next day or Friday? \nHelen: Let’s say Thursday – Nick’s busy on Fridays. \nSam: Fine. Where and what time? \nHelen: Come to my flat at seven thirty and we can walk to Nick’s. The band uses his dad’s garage because his bedroom’s too small. \nSam: Should I bring anything? Food? Music? \nHelen: Nick’s mum makes us sandwiches and I always bring CDs. A warm sweater’s a good idea, because it gets cold. \nSam: OK. When’s the band’s next concert? Aren’t you playing at your brother’s eighteenth birthday party? \nHelen: Yes, and the college has booked us for the Saturday before that. We want to play at the Starlight Club, but they’re fully booked at the moment. \nSam: Do you get paid for singing, Helen? \nHelen: Of course – the band gets a hundred and ten pounds a night and we each have twenty-five pounds. Nick keeps ten pounds for things like advertisements. \nSam: Great.",
+                        question: "Nick plays the drums in the band.",
+                        vietnamese: "Nick chơi trống trong ban nhạc.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nSam: He plays drums, doesn’t he, Helen?\nHelen: Yes."
+                    },
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        question: "Nick is busy on Thursdays.",
+                        vietnamese: "Nick bận vào các ngày thứ Năm.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nHelen: Let’s say Thursday – Nick’s busy on Fridays."
+                    },
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        question: "The band practices at Nick’s house.",
+                        vietnamese: "Ban nhạc tập luyện tại nhà của Nick.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nHelen: ...we can walk to Nick’s. The band uses his dad’s garage..."
+                    },
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        question: "Sam should bring music with him to the practice.",
+                        vietnamese: "Sam nên mang theo bản nhạc khi đến buổi tập.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 2, // NOT GIVEN
+                        explanation: "Helen mentions she brings CDs, but doesn't explicitly say whether Sam should or shouldn't bring music. It's not given."
+                    },
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        question: "Helen’s band has a concert at her brother’s birthday party.",
+                        vietnamese: "Ban nhạc của Helen có một buổi hòa nhạc tại bữa tiệc sinh nhật của anh trai cô ấy.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nSam: Aren’t you playing at your brother’s eighteenth birthday party?\nHelen: Yes..."
+                    },
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        question: "Helen suggests that Sam should bring a warm sweater.",
+                        vietnamese: "Helen gợi ý Sam nên mang theo một chiếc áo len ấm áp.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nHelen: A warm sweater’s a good idea, because it gets cold."
+                    },
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        question: "Each member of the band gets £25 for every concert.",
+                        vietnamese: "Mỗi thành viên của ban nhạc nhận được 25 bảng Anh cho mỗi buổi hòa nhạc.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 0, // TRUE
+                        explanation: "Transcript: \nHelen: ...we each have twenty-five pounds."
+                    },
+                    {
+                        context: "SCENARIO 4: NICK AND HELEN'S BAND PRACTICE",
+                        question: "Nick keeps all the money from the concerts for himself.",
+                        vietnamese: "Nick giữ lại toàn bộ số tiền từ các buổi hòa nhạc cho riêng mình.",
+                        options: ["TRUE", "FALSE", "NOT GIVEN"],
+                        answer: 1, // FALSE
+                        explanation: "Transcript: \nHelen: Nick keeps ten pounds for things like advertisements."
+                    }
+                ]
+            }
+        };
+
+        // --- Core State ---
+        const state = {
+            darkMode: true,
+            activeTab: 'dashboard',
+            activePart: '', 
+            questions: [],
+            answers: {}, 
+            flags: {},
+            gradedCards: {}, // Tracker cho những bài đã được chấm điểm (để khóa input)
+            activeP5Context: 'ALL'
+        };
+
+        // --- DOM Helpers ---
+        function getEl(id) { return document.getElementById(id); }
+
+        function toggleSubtitle(id) {
+            const el = getEl(id);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        function toggleTranscript(id) {
+            const el = getEl(id);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        function showToast(message, type = 'info') {
+            const container = getEl('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `px-5 py-3.5 rounded-xl shadow-xl text-xs font-black text-white transition-all duration-300 transform translate-y-2 opacity-0 flex items-center gap-2.5 pointer-events-auto bg-[#1a1a24] border border-zinc-700 animate-slideUp`;
+            
+            let icon = '<i class="fa-solid fa-circle-info text-blue-400 text-base"></i>';
+            if (type === 'success') icon = '<i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>';
+            if (type === 'error') icon = '<i class="fa-solid fa-triangle-exclamation text-red-400 text-base"></i>';
+            
+            toast.innerHTML = `${icon} <span class="tracking-wide">${message}</span>`;
+            container.appendChild(toast);
+            
+            setTimeout(() => toast.classList.remove('opacity-0', 'translate-y-2'), 10);
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function toggleDarkMode() {
+            state.darkMode = !state.darkMode;
+            const body = document.body;
+            const themeToggle = getEl('theme-toggle');
+            
+            if (state.darkMode) {
+                body.classList.add('dark', 'bg-[#12121a]', 'text-white');
+                body.classList.remove('bg-gray-50', 'text-gray-900');
+                themeToggle.innerHTML = `<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>`;
+            } else {
+                body.classList.remove('dark', 'bg-[#12121a]', 'text-white');
+                body.classList.add('bg-gray-50', 'text-gray-900');
+                themeToggle.innerHTML = `<svg class="w-5 h-5 text-violet-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>`;
+            }
+        }
+
+        function getShuffledClone(arr) {
+            let clone = JSON.parse(JSON.stringify(arr));
+            for (let i = clone.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [clone[i], clone[j]] = [clone[j], clone[i]];
+            }
+            return clone;
+        }
+
+        function changeP5Context(ctx) {
+            state.activeP5Context = ctx;
+            renderQuestionsList();
+            renderSidebarGrids();
+        }
+
+        // --- NAVIGATION ---
+        function switchView(view) {
+            state.activeTab = view;
+            getEl('view-dashboard').classList.add('hidden');
+            getEl('view-quiz').classList.add('hidden');
+            
+            if (view === 'dashboard') {
+                getEl('view-dashboard').classList.remove('hidden');
+            } else if (view === 'quiz') {
+                getEl('view-quiz').classList.remove('hidden');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- START QUIZ ---
+        function startQuiz(partKey) {
+            if (!dataBank[partKey]) {
+                showToast("Dữ liệu phần này đang cập nhật.", "error");
+                return;
+            }
+            state.activePart = partKey;
+            state.answers = {};
+            state.flags = {};
+            state.gradedCards = {};
+            
+            const partData = dataBank[partKey];
+            
+            if (partKey === 'p5') {
+                // Nhóm các câu hỏi theo context (bài)
+                const grouped = {};
+                partData.questions.forEach(q => {
+                    if (!grouped[q.context]) grouped[q.context] = [];
+                    grouped[q.context].push(q);
+                });
+                
+                // Shuffle danh sách các bài (scenarios)
+                let contexts = Object.keys(grouped);
+                for (let i = contexts.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [contexts[i], contexts[j]] = [contexts[j], contexts[i]];
+                }
+                
+                // Ghép lại thành danh sách phẳng, đồng thời shuffle câu hỏi trong mỗi bài
+                let flattened = [];
+                contexts.forEach(ctx => {
+                    let qs = grouped[ctx];
+                    for (let i = qs.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [qs[i], qs[j]] = [qs[j], qs[i]];
+                    }
+                    flattened.push(...qs);
+                });
+                
+                state.questions = flattened;
+                state.activeP5Context = contexts[0]; // Mặc định chọn bài đầu tiên sau khi xáo trộn
+            } else {
+                state.questions = getShuffledClone(partData.questions);
+            }
+            
+            getEl('quiz-course-title').innerText = partData.title;
+            getEl('quiz-course-subtitle').innerText = partData.subtitle;
+            
+            renderSidebarGrids();
+            renderQuestionsList();
+            updateLiveStats();
+            switchView('quiz');
+        }
+
+        // --- RENDER SIDEBAR ---
+        function renderSidebarGrids() {
+            const pcGrid = getEl('sidebar-grid');
+            let gridHtml = '';
+            
+            state.questions.forEach((q, idx) => {
+                if (state.activePart === 'p5' && state.activeP5Context !== 'ALL' && q.context !== state.activeP5Context) {
+                    return; // Ẩn câu hỏi khỏi sidebar nếu không thuộc bài đang chọn
+                }
+
+                let isAnswered = false;
+                
+                if (state.activePart === 'p1' || state.activePart === 'p5') {
+                    isAnswered = state.answers[idx] !== undefined;
+                } else if (state.activePart === 'p2' || state.activePart === 'p4') {
+                    // Kiểm tra xem TẤT CẢ các ô input trong bài này đã được điền chưa
+                    const allInputsKeys = [];
+                    if (q.questions) {
+                        q.questions.forEach(subQ => {
+                            if (subQ.type === 'input' || subQ.answer) allInputsKeys.push(subQ.key);
+                            if (subQ.type === 'multi-input') allInputsKeys.push(...subQ.keys);
+                        });
+                        isAnswered = allInputsKeys.every(k => state.answers[k] && state.answers[k].trim() !== '');
+                    }
+                } else if (state.activePart === 'p3') {
+                    isAnswered = state.gradedCards[idx] === true;
+                }
+
+                const isFlagged = state.flags[idx];
+                
+                let btnStyle = "bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 text-gray-700 dark:text-gray-300 border-transparent";
+                if (isAnswered) {
+                    btnStyle = "bg-violet-600 text-white border-transparent hover:bg-violet-500 shadow-md shadow-violet-600/20";
+                }
+
+                gridHtml += `
+                    <button onclick="scrollToQuestion(${idx})" class="flex items-center justify-between p-2.5 rounded-xl border transition-all duration-200 cursor-pointer text-xs font-black ${btnStyle}">
+                        <span class="text-left w-full text-center">${idx + 1}</span>
+                        ${isFlagged ? '<i class="fa-solid fa-circle text-[6px] text-amber-400 absolute ml-6 -mt-3"></i>' : ''}
+                    </button>
+                `;
+            });
+            if (pcGrid) pcGrid.innerHTML = gridHtml;
+        }
+
+        function scrollToQuestion(index) {
+            const element = getEl(`question-card-${index}`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function toggleFlag(idx) {
+            state.flags[idx] = !state.flags[idx];
+            const flagBadge = getEl(`card-flag-badge-${idx}`);
+            const flagBtn = getEl(`flag-btn-${idx}`);
+            
+            if (state.flags[idx]) {
+                flagBadge.classList.remove('hidden');
+                flagBtn.innerHTML = `<i class="fa-solid fa-flag text-amber-400"></i> Bỏ cờ đánh dấu`;
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagBadge.classList.add('hidden');
+                flagBtn.innerHTML = `<i class="fa-regular fa-flag"></i> Gắn cờ chú ý`;
+                flagBtn.classList.remove('text-amber-500');
+            }
+            renderSidebarGrids();
+        }
+
+        function getAudioPath(partKey, index) {
+            // Quy tắc: ./audio/P#_Cau#_Audio#.mp3
+            const pNum = partKey.replace('p', '');
+            const cNum = index + 1;
+            return `./audio/P${pNum}_Cau${cNum}_Audio${cNum}.mp3`;
+        }
+
+        function renderAudioPlayer(idx) {
+            const audioPath = getAudioPath(state.activePart, idx);
+            const q = state.questions[idx];
+            const transcriptText = q.transcript || q.explanation || 'Transcript đang được cập nhật...';
+            return `
+                <div class="mb-5 p-3.5 bg-gray-50 dark:bg-[#12121a] border border-gray-200 dark:border-zinc-800 rounded-2xl flex flex-col gap-2 shadow-inner">
+                    <div class="flex items-center justify-between px-2">
+                        <span class="text-[9px] font-black tracking-widest text-violet-500 uppercase">Audio Track</span>
+                        <div class="flex items-center gap-3">
+                            <button onclick="toggleTranscript('transcript-audio-${idx}')" class="text-[9px] font-bold text-violet-600 dark:text-violet-400 hover:text-violet-800 uppercase flex items-center gap-1 transition-colors"><i class="fa-solid fa-file-waveform"></i> Xem Transcript</button>
+                            <span class="text-[9px] text-gray-400 font-mono">${audioPath.split('/').pop()}</span>
+                        </div>
+                    </div>
+                    <audio controls class="w-full h-10 outline-none rounded-lg" style="opacity: 0.9;">
+                        <source src="${audioPath}" type="audio/mpeg">
+                        Trình duyệt không hỗ trợ thẻ audio.
+                    </audio>
+                    <div id="transcript-audio-${idx}" class="hidden mt-2 p-3 bg-white dark:bg-[#1a1a24] rounded-xl border border-gray-200 dark:border-zinc-700 text-xs text-gray-700 dark:text-gray-300 leading-relaxed max-h-48 overflow-y-auto custom-scrollbar italic whitespace-pre-line">
+                        ${transcriptText}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- RENDER MAIN QUESTIONS LIST ---
+        function renderQuestionsList() {
+            const container = getEl('questions-container');
+            let listHtml = '';
+            
+            let currentContext = "";
+            let contextIndex = 0;
+
+            if (state.activePart === 'p5') {
+                const uniqueContexts = [...new Set(state.questions.map(q => q.context))];
+                
+                listHtml += `
+                    <div class="mb-6 p-4 bg-white dark:bg-[#1a1a24] rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm flex items-center gap-3">
+                        <label class="text-xs font-black text-gray-500 uppercase tracking-widest shrink-0"><i class="fa-solid fa-list text-violet-500 mr-1"></i> Chọn bài nghe:</label>
+                        <select onchange="changeP5Context(this.value)" class="flex-1 bg-gray-50 dark:bg-[#12121a] border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 text-xs sm:text-sm font-bold rounded-xl px-3 py-2 outline-none focus:border-violet-500 transition-colors cursor-pointer">
+                            <option value="ALL" ${state.activeP5Context === 'ALL' ? 'selected' : ''}>-- Hiển thị tất cả 4 bài --</option>
+                            ${uniqueContexts.map(ctx => `<option value="${ctx}" ${state.activeP5Context === ctx ? 'selected' : ''}>${ctx}</option>`).join('')}
+                        </select>
+                    </div>
+                `;
+            }
+
+            state.questions.forEach((q, idx) => {
+                const hasFlag = state.flags[idx];
+                
+                let displayClass = '';
+                if (state.activePart === 'p5' && state.activeP5Context !== 'ALL' && q.context !== state.activeP5Context) {
+                    displayClass = 'hidden';
+                }
+
+                // Hiển thị Context cho P5
+                let contextHtml = '';
+                if (state.activePart === 'p5' && q.context !== currentContext) {
+                    currentContext = q.context;
+                    contextIndex++;
+                    
+                    // Trích xuất số bài từ chữ "SCENARIO X" để gọi đúng file Audio
+                    const match = currentContext.match(/SCENARIO (\d+)/i);
+                    const audioNum = match ? match[1] : contextIndex;
+                    const audioPath = `./audio/P5_Cau${audioNum}_Audio${audioNum}.mp3`;
+                    
+                    // Tìm câu hỏi có chứa fullTranscript để hiển thị trọn vẹn (fix lỗi bị mất script khi xáo trộn bài)
+                    const qWithTranscript = state.questions.find(qItem => qItem.context === currentContext && qItem.fullTranscript);
+                    const transcriptText = qWithTranscript 
+                                            ? qWithTranscript.fullTranscript 
+                                            : 'Transcript đang được cập nhật...';
+                    
+                    contextHtml = `
+                        <div class="mt-8 mb-4 space-y-4 ${displayClass}">
+                            <span class="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 text-xs font-black uppercase tracking-widest border border-rose-200 dark:border-rose-800/30">
+                                ${currentContext}
+                            </span>
+                            <!-- Audio Player chung cho cả đoạn -->
+                            <div class="p-3.5 bg-gray-50 dark:bg-[#12121a] border border-gray-200 dark:border-zinc-800 rounded-2xl flex flex-col gap-2 shadow-inner">
+                                <div class="flex items-center justify-between px-2">
+                                    <span class="text-[9px] font-black tracking-widest text-violet-500 uppercase">Audio Track - Bài ${audioNum}</span>
+                                    <div class="flex items-center gap-3">
+                                        <button onclick="toggleTranscript('transcript-ctx-${contextIndex}')" class="text-[9px] font-bold text-violet-600 dark:text-violet-400 hover:text-violet-800 uppercase flex items-center gap-1 transition-colors"><i class="fa-solid fa-file-waveform"></i> Xem Transcript</button>
+                                        <span class="text-[9px] text-gray-400 font-mono">${audioPath.split('/').pop()}</span>
+                                    </div>
+                                </div>
+                                <audio controls class="w-full h-10 outline-none rounded-lg" style="opacity: 0.9;">
+                                    <source src="${audioPath}" type="audio/mpeg">
+                                    Trình duyệt không hỗ trợ thẻ audio.
+                                </audio>
+                                <div id="transcript-ctx-${contextIndex}" class="hidden mt-2 p-3 bg-white dark:bg-[#1a1a24] rounded-xl border border-gray-200 dark:border-zinc-700 text-xs text-gray-700 dark:text-gray-300 leading-relaxed max-h-48 overflow-y-auto custom-scrollbar italic whitespace-pre-line">
+                                    ${transcriptText}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                const cardPadding = state.activePart === 'p5' ? 'p-4 md:p-5' : 'p-5 md:p-8';
+
+                listHtml += `
+                    ${contextHtml}
+                    <div id="question-card-${idx}" class="${cardPadding} rounded-3xl border shadow-sm transition-all relative bg-white dark:bg-[#1a1a24] text-gray-900 dark:text-white border-gray-200 dark:border-zinc-800 ${displayClass}">
+                        <!-- Flag Badge -->
+                        <div id="card-flag-badge-${idx}" class="absolute top-0 right-6 transform -translate-y-1/2 bg-gradient-to-r from-amber-400 to-amber-500 text-amber-950 font-black px-4 py-1.5 text-[10px] rounded-full flex items-center gap-1.5 shadow-lg z-10 ${hasFlag ? '' : 'hidden'}">
+                            <i class="fa-solid fa-flag"></i> ĐÁNH DẤU CHÚ Ý
+                        </div>
+
+                        <!-- Header câu hỏi -->
+                        <div class="flex items-center justify-between gap-2 mb-4 border-b border-gray-100 dark:border-zinc-800/80 pb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 flex items-center justify-center font-black text-sm">
+                                    ${idx + 1}
+                                </div>
+                                <span id="feedback-badge-${idx}"></span>
+                            </div>
+                            <span class="font-bold text-[10px] text-gray-400 uppercase tracking-widest">
+                                ${(state.activePart === 'p2' || state.activePart === 'p4') ? 'BÀI' : 'CÂU HỎI'} ${idx + 1}
+                            </span>
+                        </div>
+
+                        <!-- Audio Player -->
+                        ${state.activePart !== 'p5' ? renderAudioPlayer(idx) : ''}
+
+                        <!-- Nội dung câu hỏi (P1/P2/...) -->
+                        <div id="card-content-${idx}">
+                            ${state.activePart === 'p1' ? renderP1Content(q, idx) : ''}
+                            ${state.activePart === 'p2' ? renderP2Content(q, idx) : ''}
+                            ${state.activePart === 'p3' ? renderP3Content(q, idx) : ''}
+                            ${state.activePart === 'p4' ? renderP4Content(q, idx) : ''}
+                            ${state.activePart === 'p5' ? renderP5Content(q, idx) : ''}
+                        </div>
+
+                        <!-- Phản hồi Script (Ẩn đi cho đến khi chấm) -->
+                        <div id="explanation-block-${idx}" class="mt-6 p-5 rounded-2xl border border-violet-200 dark:border-violet-900/50 bg-violet-50 dark:bg-violet-900/10 text-violet-950 dark:text-violet-300 text-sm hidden">
+                            <div class="flex items-center gap-2 font-black mb-3 text-violet-700 dark:text-violet-400 uppercase tracking-widest text-[10px]">
+                                <i class="fa-solid fa-file-lines"></i> Audio Transcript & Giải thích
+                            </div>
+                            <p class="leading-relaxed font-medium italic text-gray-700 dark:text-zinc-300 border-l-2 border-violet-400 pl-3 whitespace-pre-line">
+                                ${q.explanation}
+                            </p>
+                        </div>
+
+                        <!-- Actions bar -->
+                        <div class="flex justify-between items-center pt-5 mt-5 border-t border-gray-100 dark:border-zinc-800/60">
+                            <button id="flag-btn-${idx}" onclick="toggleFlag(${idx})" class="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-amber-500 transition-colors cursor-pointer px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800">
+                                <i class="fa-regular fa-flag"></i> Gắn cờ chú ý
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = listHtml;
+            
+            // Re-apply values if they exist
+            if (state.activePart === 'p2' || state.activePart === 'p4') {
+                state.questions.forEach((q, idx) => {
+                    if (state.gradedCards[idx]) {
+                        // Đã chấm -> Khóa ô và show đáp án
+                        q.questions.forEach(subQ => {
+                            if(subQ.type === 'input' || subQ.answer) {
+                                const el = getEl(`p2-input-${subQ.key}`);
+                                if(el) el.value = state.answers[subQ.key];
+                            } else if (subQ.type === 'multi-input') {
+                                subQ.keys.forEach(k => {
+                                    const el = getEl(`p2-input-${k}`);
+                                    if(el) el.value = state.answers[k];
+                                });
+                            }
+                        });
+                        if (state.activePart === 'p2') gradeP2Card(idx);
+                        if (state.activePart === 'p4') gradeP4Card(idx);
+                    } else {
+                        // Trạng thái chưa chấm, chỉ điền lại value
+                        q.questions.forEach(subQ => {
+                            if(subQ.type === 'input' || subQ.answer) {
+                                const el = getEl(`p2-input-${subQ.key}`);
+                                if(el && state.answers[subQ.key]) el.value = state.answers[subQ.key];
+                            } else if (subQ.type === 'multi-input') {
+                                subQ.keys.forEach(k => {
+                                    const el = getEl(`p2-input-${k}`);
+                                    if(el && state.answers[k]) el.value = state.answers[k];
+                                });
+                            }
+                        });
+                    }
+                });
+            } else if (state.activePart === 'p1') {
+                state.questions.forEach((q, idx) => {
+                    if(state.answers[idx] !== undefined) {
+                        selectP1Option(idx, state.answers[idx], true);
+                    }
+                });
+            } else if (state.activePart === 'p3') {
+                state.questions.forEach((q, idx) => {
+                    if (state.answers[idx]) {
+                        state.answers[idx].forEach(optIdx => {
+                            const optButton = getEl(`opt-p3-${idx}-${optIdx}`);
+                            const optCheckbox = getEl(`check-p3-${idx}-${optIdx}`);
+                            if (optButton && !state.gradedCards[idx]) {
+                                optButton.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                                optCheckbox.classList.add('bg-blue-500', 'border-blue-500');
+                                optCheckbox.innerHTML = '<i class="fa-solid fa-check text-[10px] text-white"></i>';
+                            }
+                        });
+                    }
+                    if (state.gradedCards[idx]) {
+                        gradeP3Card(idx, true);
+                    }
+                });
+            } else if (state.activePart === 'p5') {
+                state.questions.forEach((q, idx) => {
+                    if(state.answers[idx] !== undefined) {
+                        selectP5Option(idx, state.answers[idx], true);
+                    }
+                });
+            }
+        }
+
+        // --- CONTENT RENDERING BY PART ---
+        function renderP1Content(q, idx) {
+            let html = `
+                <div class="mb-5">
+                    <div class="font-bold text-base md:text-lg text-gray-900 dark:text-white leading-relaxed tracking-tight inline-block">
+                        ${q.question}
+                    </div>
+                    <button onclick="toggleSubtitle('sub-${idx}')" class="ml-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                        <i class="fa-solid fa-language"></i> Dịch
+                    </button>
+                    <div id="sub-${idx}" class="hidden mt-3 p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/30 text-sm text-gray-700 dark:text-gray-300 font-medium italic">
+                        ${q.vietnamese || 'Bản dịch tiếng Việt đang được cập nhật...'}
+                    </div>
+                </div>
+                <div class="space-y-3">
+            `;
+            q.options.map((option, optIdx) => {
+                const optionLetter = String.fromCharCode(65 + optIdx);
+                html += `
+                    <div id="opt-${idx}-${optIdx}" onclick="selectP1Option(${idx}, ${optIdx})" class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-[#1e1e28] text-gray-800 dark:text-zinc-200 active:scale-[0.99] hover:border-violet-500 hover:shadow-md cursor-pointer transition-all select-none">
+                        <div id="dot-${idx}-${optIdx}" class="w-5 h-5 rounded-full border border-gray-300 dark:border-zinc-600 flex items-center justify-center shrink-0"></div>
+                        <span class="font-black text-gray-400">${optionLetter}.</span>
+                        <span class="flex-1 leading-snug font-medium">${option}</span>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            return html;
+        }
+
+        function renderP2Content(q, idx) {
+            let html = `
+                <div class="mb-4">
+                    <div class="inline-block">
+                        <h5 class="text-sm font-black text-violet-600 dark:text-violet-400 inline-block">${q.title}</h5>
+                        <button onclick="toggleSubtitle('sub-${idx}')" class="ml-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                            <i class="fa-solid fa-language"></i> Dịch
+                        </button>
+                    </div>
+                    <div id="sub-${idx}" class="hidden mt-3 p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/30 text-sm text-gray-700 dark:text-gray-300 font-medium italic">
+                        ${q.vietnamese || 'Bản dịch tiếng Việt đang được cập nhật...'}
+                    </div>
+                    <p class="text-xs text-amber-600 dark:text-amber-500 font-bold uppercase tracking-wider mt-2 border-l-2 border-amber-500 pl-2">${q.instruction}</p>
+                </div>
+                <div class="space-y-3 bg-gray-50 dark:bg-[#15151e] p-5 rounded-2xl border border-gray-200 dark:border-zinc-800">
+            `;
+            
+            q.questions.forEach(subQ => {
+                // Parse text to inject inputs
+                let lineHtml = subQ.text;
+                if (subQ.type === 'input') {
+                    const inputMarkup = `<input type="text" id="p2-input-${subQ.key}" class="blank-input" onchange="handleP2Input(${idx}, '${subQ.key}', this.value)" autocomplete="off" />`;
+                    lineHtml = lineHtml.replace(/\[[a-z]\]/i, inputMarkup); // Replace [a], [b], etc.
+                } else if (subQ.type === 'multi-input') {
+                    subQ.keys.forEach(k => {
+                        const inputMarkup = `<input type="text" id="p2-input-${k}" class="blank-input" onchange="handleP2Input(${idx}, '${k}', this.value)" autocomplete="off" />`;
+                        lineHtml = lineHtml.replace(/\[[a-z]\]/i, inputMarkup);
+                    });
+                }
+                html += `<div class="font-medium text-sm md:text-base leading-relaxed text-gray-800 dark:text-zinc-200">${lineHtml}</div>`;
+            });
+
+            html += `</div>`;
+            return html;
+        }
+
+        function renderP3Content(q, idx) {
+            let html = `
+                <div class="mb-4">
+                    <div class="inline-block">
+                        <h5 class="font-bold text-base md:text-lg text-gray-900 dark:text-white leading-relaxed tracking-tight inline-block">${q.question}</h5>
+                        <button onclick="toggleSubtitle('sub-${idx}')" class="ml-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                            <i class="fa-solid fa-language"></i> Dịch
+                        </button>
+                    </div>
+                    <div id="sub-${idx}" class="hidden mt-3 p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/30 text-sm text-gray-700 dark:text-gray-300 font-medium italic">
+                        ${q.vietnamese || 'Bản dịch tiếng Việt đang được cập nhật...'}
+                    </div>
+                    <p class="text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider mt-2 border-l-2 border-blue-500 pl-2">Chọn ${q.required_count} đáp án</p>
+                </div>
+                <div class="space-y-3">
+            `;
+            q.options.forEach((option, optIdx) => {
+                html += `
+                    <div id="opt-p3-${idx}-${optIdx}" onclick="toggleP3Option(${idx}, ${optIdx})" class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-[#1e1e28] text-gray-800 dark:text-zinc-200 active:scale-[0.99] hover:border-blue-500 hover:shadow-md cursor-pointer transition-all select-none">
+                        <div id="check-p3-${idx}-${optIdx}" class="w-5 h-5 rounded border border-gray-300 dark:border-zinc-600 flex items-center justify-center shrink-0 transition-colors"></div>
+                        <span class="flex-1 leading-snug font-medium">${option}</span>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            return html;
+        }
+
+        function renderP4Content(q, idx) {
+            let html = `
+                <div class="mb-4">
+                    <div class="inline-block">
+                        <h5 class="text-sm font-black text-amber-600 dark:text-amber-500 inline-block">${q.title}</h5>
+                        <button onclick="toggleSubtitle('sub-${idx}')" class="ml-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                            <i class="fa-solid fa-language"></i> Dịch
+                        </button>
+                    </div>
+                    <div id="sub-${idx}" class="hidden mt-3 p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/30 text-sm text-gray-700 dark:text-gray-300 font-medium italic">
+                        ${q.vietnamese || 'Bản dịch tiếng Việt đang được cập nhật...'}
+                    </div>
+                    <p class="text-xs text-amber-600 dark:text-amber-500 font-bold uppercase tracking-wider mt-2 border-l-2 border-amber-500 pl-2">${q.instruction}</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-1 bg-white dark:bg-[#15151e] p-4 rounded-2xl border border-gray-200 dark:border-zinc-800">
+                        <h6 class="text-xs font-bold text-gray-500 uppercase mb-3">List of areas</h6>
+                        <ul class="space-y-2">
+                            ${q.list.map(item => `<li class="text-sm font-medium text-gray-700 dark:text-gray-300">${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="md:col-span-2 bg-gray-50 dark:bg-[#15151e] p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 overflow-x-auto">
+                        <pre class="font-mono text-[10px] sm:text-xs text-gray-800 dark:text-zinc-300 leading-tight">`;
+            
+            // Inject inputs into planText dynamically
+            let processedText = q.planText;
+            q.questions.forEach(subQ => {
+                const char = subQ.key.replace(/\d+/, ''); // gets 'a', 'b', 'c', 'd'
+                const regex = new RegExp(`\\[${char}\\] \\.*`, 'g');
+                const inputMarkup = `<input type="text" id="p2-input-${subQ.key}" class="blank-input !w-8 !text-amber-600 !font-black" maxlength="1" onchange="handleP4Input(${idx}, '${subQ.key}', this.value)" autocomplete="off" />`;
+                processedText = processedText.replace(regex, inputMarkup);
+            });
+            
+            html += `${processedText}</pre>
+                    </div>
+                </div>
+            `;
+            return html;
+        }
+
+        function renderP5Content(q, idx) {
+            let html = `
+                <div class="mb-4">
+                    <div class="font-bold text-sm md:text-base text-gray-900 dark:text-white leading-relaxed tracking-tight inline-block">
+                        ${q.question}
+                    </div>
+                    <button onclick="toggleSubtitle('sub-${idx}')" class="ml-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                        <i class="fa-solid fa-language"></i> Dịch
+                    </button>
+                    <div id="sub-${idx}" class="hidden mt-3 p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/30 text-sm text-gray-700 dark:text-gray-300 font-medium italic">
+                        ${q.vietnamese || 'Bản dịch tiếng Việt đang được cập nhật...'}
+                    </div>
+                </div>
+                <div class="flex flex-row flex-wrap sm:flex-nowrap gap-2">
+            `;
+            q.options.forEach((option, optIdx) => {
+                html += `
+                    <div id="opt-p5-${idx}-${optIdx}" onclick="selectP5Option(${idx}, ${optIdx})" class="flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-[#1e1e28] text-gray-800 dark:text-zinc-200 active:scale-[0.99] hover:border-rose-500 hover:shadow-md cursor-pointer transition-all select-none text-center">
+                        <div id="dot-p5-${idx}-${optIdx}" class="w-4 h-4 rounded-full border border-gray-300 dark:border-zinc-600 flex items-center justify-center shrink-0"></div>
+                        <span class="font-black text-xs sm:text-sm uppercase tracking-wider">${option}</span>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            return html;
+        }
+
+
+        // --- INTERACTION LOGIC P1 ---
+        function selectP1Option(qIdx, optIdx, isRebuilding = false) {
+            if (state.gradedCards[qIdx]) return; // Nếu đã khóa thì bỏ qua
+            
+            state.answers[qIdx] = optIdx;
+            state.gradedCards[qIdx] = true; // Mark as graded
+            
+            const qData = state.questions[qIdx];
+            const isCorrect = optIdx === qData.answer;
+            
+            const feedbackBadge = getEl(`feedback-badge-${qIdx}`);
+            if (feedbackBadge) {
+                feedbackBadge.innerHTML = isCorrect 
+                    ? `<span class="text-[10px] font-black px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30"><i class="fa-solid fa-check mr-1"></i> CHÍNH XÁC</span>`
+                    : `<span class="text-[10px] font-black px-2.5 py-1 rounded-md bg-red-100 dark:bg-red-950/40 text-red-800 dark:text-red-400 border border-red-200 dark:border-red-800/30"><i class="fa-solid fa-xmark mr-1"></i> SAI RỒI</span>`;
+            }
+            
+            for (let i = 0; i < qData.options.length; i++) {
+                const optButton = getEl(`opt-${qIdx}-${i}`);
+                const optDot = getEl(`dot-${qIdx}-${i}`);
+                if(!optButton) continue;
+
+                optButton.className = "flex items-center gap-3 p-3.5 rounded-xl border text-xs md:text-sm transition-all select-none border-gray-100 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/50 text-gray-400 dark:text-zinc-600 cursor-not-allowed";
+                optDot.className = "w-5 h-5 rounded-full border flex items-center justify-center shrink-0 border-gray-200 dark:border-zinc-800";
+                optDot.innerHTML = '';
+                
+                if (i === qData.answer) {
+                    optButton.className = "flex items-center gap-3 p-3.5 rounded-xl border text-xs md:text-sm transition-all select-none border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-400 font-semibold cursor-not-allowed shadow-inner";
+                    optDot.className = "w-5 h-5 rounded-full border flex items-center justify-center shrink-0 border-emerald-500 bg-emerald-500";
+                    optDot.innerHTML = '<i class="fa-solid fa-check text-[10px] text-white"></i>';
+                } else if (i === optIdx) {
+                    optButton.className = "flex items-center gap-3 p-3.5 rounded-xl border text-xs md:text-sm transition-all select-none border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-400 font-semibold cursor-not-allowed shadow-inner";
+                    optDot.className = "w-5 h-5 rounded-full border flex items-center justify-center shrink-0 border-red-500 bg-red-500";
+                    optDot.innerHTML = '<i class="fa-solid fa-xmark text-[10px] text-white"></i>';
+                }
+            }
+            
+            const explanationBlock = getEl(`explanation-block-${qIdx}`);
+            if (explanationBlock) {
+                explanationBlock.classList.remove('hidden');
+                if(!isRebuilding) explanationBlock.classList.add('animate-fadeIn');
+            }
+            
+            if(!isRebuilding) {
+                updateLiveStats();
+                renderSidebarGrids();
+            }
+        }
+
+        // --- INTERACTION LOGIC P2 ---
+        function handleP2Input(qIdx, inputKey, value) {
+            if (state.gradedCards[qIdx]) return; 
+
+            state.answers[inputKey] = value.trim();
+            
+            const qData = state.questions[qIdx];
+            const allKeys = [];
+            qData.questions.forEach(subQ => {
+                if(subQ.type === 'input') allKeys.push(subQ.key);
+                if(subQ.type === 'multi-input') allKeys.push(...subQ.keys);
+            });
+
+            const isAllFilled = allKeys.every(k => state.answers[k] && state.answers[k] !== '');
+            
+            if (isAllFilled) {
+                gradeP2Card(qIdx);
+                updateLiveStats();
+                renderSidebarGrids();
+            }
+        }
+
+        function checkP2AnswerString(userAns, correctString) {
+            if(!userAns) return false;
+            const uAns = userAns.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const options = correctString.split('|');
+            for(let opt of options) {
+                const cleanOpt = opt.toLowerCase().replace(/[^a-z0-9]/g, '');
+                if (uAns === cleanOpt) return true;
+            }
+            const commaOpts = correctString.split(',').map(s=>s.toLowerCase().replace(/[^a-z0-9]/g, ''));
+            if(commaOpts.length > 1) {
+                const cleanCorrect = correctString.toLowerCase().replace(/[^a-z0-9]/g, '');
+                if(uAns === cleanCorrect) return true;
+            }
+            return false;
+        }
+
+        function gradeP2Card(qIdx) {
+            state.gradedCards[qIdx] = true;
+            const qData = state.questions[qIdx];
+            
+            let cardTotal = 0;
+            let cardCorrect = 0;
+
+            qData.questions.forEach(subQ => {
+                if(subQ.type === 'input') {
+                    cardTotal++;
+                    const el = getEl(`p2-input-${subQ.key}`);
+                    if (el) el.disabled = true;
+
+                    const uAns = state.answers[subQ.key];
+                    const isCorrect = checkP2AnswerString(uAns, subQ.answer);
+                    
+                    if(isCorrect) {
+                        cardCorrect++;
+                        if(el) el.classList.add('correct');
+                    } else {
+                        if(el) {
+                            el.classList.add('wrong');
+                            const span = document.createElement('span');
+                            span.className = "text-[10px] text-emerald-500 font-bold ml-1 bg-emerald-500/10 px-1 rounded border border-emerald-500/30";
+                            span.innerHTML = `<i class="fa-solid fa-arrow-left"></i> Đáp án: ${subQ.answer.replace(/\|/g, ' hoặc ')}`;
+                            el.parentNode.insertBefore(span, el.nextSibling);
+                        }
+                    }
+
+                } else if (subQ.type === 'multi-input') {
+                    subQ.keys.forEach((k, i) => {
+                        cardTotal++;
+                        const el = getEl(`p2-input-${k}`);
+                        if (el) el.disabled = true;
+
+                        const uAns = state.answers[k];
+                        const isCorrect = checkP2AnswerString(uAns, subQ.answers[i]);
+
+                        if(isCorrect) {
+                            cardCorrect++;
+                            if(el) el.classList.add('correct');
+                        } else {
+                            if(el) {
+                                el.classList.add('wrong');
+                                const span = document.createElement('span');
+                                span.className = "text-[10px] text-emerald-500 font-bold ml-1 bg-emerald-500/10 px-1 rounded border border-emerald-500/30";
+                                span.innerHTML = `<i class="fa-solid fa-arrow-left"></i> Đáp án: ${subQ.answers[i].replace(/\|/g, ' hoặc ')}`;
+                                el.parentNode.insertBefore(span, el.nextSibling);
+                            }
+                        }
+                    });
+                }
+            });
+
+            state.answers[`score_${qIdx}`] = { correct: cardCorrect, total: cardTotal };
+
+            const feedbackBadge = getEl(`feedback-badge-${qIdx}`);
+            if (feedbackBadge) {
+                feedbackBadge.innerHTML = `<span class="text-[10px] font-black px-2.5 py-1 rounded-md bg-blue-100 dark:bg-blue-950/40 text-blue-800 dark:text-blue-400 border border-blue-200 dark:border-blue-800/30"><i class="fa-solid fa-list-check mr-1"></i> ĐẠT ${cardCorrect}/${cardTotal}</span>`;
+            }
+
+            const explanationBlock = getEl(`explanation-block-${qIdx}`);
+            if (explanationBlock) {
+                explanationBlock.classList.remove('hidden');
+                explanationBlock.classList.add('animate-fadeIn');
+            }
+        }
+
+        // --- INTERACTION LOGIC P3 ---
+        function toggleP3Option(qIdx, optIdx) {
+            if (state.gradedCards[qIdx]) return; 
+
+            if (!state.answers[qIdx]) state.answers[qIdx] = [];
+            const selected = state.answers[qIdx];
+            const qData = state.questions[qIdx];
+            
+            const indexInSelected = selected.indexOf(optIdx);
+            
+            if (indexInSelected > -1) {
+                selected.splice(indexInSelected, 1);
+                const optButton = getEl(`opt-p3-${qIdx}-${optIdx}`);
+                const optCheckbox = getEl(`check-p3-${qIdx}-${optIdx}`);
+                optButton.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                optCheckbox.classList.remove('bg-blue-500', 'border-blue-500');
+                optCheckbox.innerHTML = '';
+            } else {
+                if (selected.length < qData.required_count) {
+                    selected.push(optIdx);
+                    const optButton = getEl(`opt-p3-${qIdx}-${optIdx}`);
+                    const optCheckbox = getEl(`check-p3-${qIdx}-${optIdx}`);
+                    optButton.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                    optCheckbox.classList.add('bg-blue-500', 'border-blue-500');
+                    optCheckbox.innerHTML = '<i class="fa-solid fa-check text-[10px] text-white"></i>';
+                }
+            }
+            
+            if (selected.length === qData.required_count) {
+                gradeP3Card(qIdx);
+                updateLiveStats();
+                renderSidebarGrids();
+            }
+        }
+
+        function gradeP3Card(qIdx, isRebuilding = false) {
+            state.gradedCards[qIdx] = true;
+            const qData = state.questions[qIdx];
+            const selected = state.answers[qIdx] || [];
+            
+            let cardCorrect = 0;
+            const cardTotal = qData.required_count;
+            
+            selected.forEach(optIdx => {
+                if (qData.answers.includes(optIdx)) cardCorrect++;
+            });
+            
+            state.answers[`score_${qIdx}`] = { correct: cardCorrect, total: cardTotal };
+            
+            for (let i = 0; i < qData.options.length; i++) {
+                const optButton = getEl(`opt-p3-${qIdx}-${i}`);
+                const optCheckbox = getEl(`check-p3-${qIdx}-${i}`);
+                if(!optButton) continue;
+                
+                optButton.className = "flex items-center gap-3.5 p-4 rounded-xl border text-sm transition-all select-none border-gray-100 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/50 text-gray-400 dark:text-zinc-600 cursor-not-allowed";
+                optCheckbox.className = "w-5 h-5 rounded border flex items-center justify-center shrink-0 border-gray-200 dark:border-zinc-800";
+                optCheckbox.innerHTML = '';
+                
+                const isSelected = selected.includes(i);
+                const isCorrectAns = qData.answers.includes(i);
+                
+                if (isCorrectAns && isSelected) {
+                    optButton.className = "flex items-center gap-3.5 p-4 rounded-xl border text-sm transition-all select-none border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-400 font-semibold cursor-not-allowed shadow-inner";
+                    optCheckbox.className = "w-5 h-5 rounded border flex items-center justify-center shrink-0 border-emerald-500 bg-emerald-500";
+                    optCheckbox.innerHTML = '<i class="fa-solid fa-check text-[10px] text-white"></i>';
+                } else if (isSelected && !isCorrectAns) {
+                    optButton.className = "flex items-center gap-3.5 p-4 rounded-xl border text-sm transition-all select-none border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-400 font-semibold cursor-not-allowed shadow-inner";
+                    optCheckbox.className = "w-5 h-5 rounded border flex items-center justify-center shrink-0 border-red-500 bg-red-500";
+                    optCheckbox.innerHTML = '<i class="fa-solid fa-xmark text-[10px] text-white"></i>';
+                } else if (!isSelected && isCorrectAns) {
+                    optButton.className = "flex items-center gap-3.5 p-4 rounded-xl border text-sm transition-all select-none border-emerald-300 dark:border-emerald-700 bg-transparent text-emerald-700 dark:text-emerald-500 cursor-not-allowed border-dashed";
+                    optCheckbox.className = "w-5 h-5 rounded border flex items-center justify-center shrink-0 border-emerald-500 text-emerald-500";
+                    optCheckbox.innerHTML = '<i class="fa-solid fa-check text-[10px]"></i>';
+                }
+            }
+            
+            const feedbackBadge = getEl(`feedback-badge-${qIdx}`);
+            if (feedbackBadge) {
+                feedbackBadge.innerHTML = `<span class="text-[10px] font-black px-2.5 py-1 rounded-md bg-blue-100 dark:bg-blue-950/40 text-blue-800 dark:text-blue-400 border border-blue-200 dark:border-blue-800/30"><i class="fa-solid fa-check-double mr-1"></i> ĐẠT ${cardCorrect}/${cardTotal}</span>`;
+            }
+
+            const explanationBlock = getEl(`explanation-block-${qIdx}`);
+            if (explanationBlock) {
+                explanationBlock.classList.remove('hidden');
+                if(!isRebuilding) explanationBlock.classList.add('animate-fadeIn');
+            }
+        }
+
+        // --- INTERACTION LOGIC P4 ---
+        function handleP4Input(qIdx, inputKey, value) {
+            if (state.gradedCards[qIdx]) return; 
+
+            state.answers[inputKey] = value.trim().toUpperCase();
+            
+            const qData = state.questions[qIdx];
+            const allKeys = qData.questions.map(subQ => subQ.key);
+
+            const isAllFilled = allKeys.every(k => state.answers[k] && state.answers[k] !== '');
+            
+            if (isAllFilled) {
+                gradeP4Card(qIdx);
+                updateLiveStats();
+                renderSidebarGrids();
+            }
+        }
+
+        function gradeP4Card(qIdx) {
+            state.gradedCards[qIdx] = true;
+            const qData = state.questions[qIdx];
+            
+            let cardTotal = 0;
+            let cardCorrect = 0;
+
+            qData.questions.forEach(subQ => {
+                cardTotal++;
+                const el = getEl(`p2-input-${subQ.key}`);
+                if (el) el.disabled = true;
+
+                const uAns = state.answers[subQ.key];
+                const isCorrect = uAns === subQ.answer.toUpperCase();
+                
+                if(isCorrect) {
+                    cardCorrect++;
+                    if(el) el.classList.add('correct');
+                } else {
+                    if(el) {
+                        el.classList.add('wrong');
+                        const span = document.createElement('span');
+                        span.className = "text-[10px] text-amber-600 font-bold ml-1 bg-amber-500/10 px-1 rounded border border-amber-500/30 absolute mt-4 -ml-6 z-10 shadow-sm";
+                        span.innerHTML = `<i class="fa-solid fa-arrow-up"></i> ${subQ.answer}`;
+                        el.parentNode.insertBefore(span, el.nextSibling);
+                    }
+                }
+            });
+
+            state.answers[`score_${qIdx}`] = { correct: cardCorrect, total: cardTotal };
+
+            const feedbackBadge = getEl(`feedback-badge-${qIdx}`);
+            if (feedbackBadge) {
+                feedbackBadge.innerHTML = `<span class="text-[10px] font-black px-2.5 py-1 rounded-md bg-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-400 border border-amber-200 dark:border-amber-800/30"><i class="fa-solid fa-map-location-dot mr-1"></i> ĐẠT ${cardCorrect}/${cardTotal}</span>`;
+            }
+
+            const explanationBlock = getEl(`explanation-block-${qIdx}`);
+            if (explanationBlock) {
+                explanationBlock.classList.remove('hidden');
+                explanationBlock.classList.add('animate-fadeIn');
+            }
+        }
+
+        // --- INTERACTION LOGIC P5 ---
+        function selectP5Option(qIdx, optIdx, isRebuilding = false) {
+            if (state.gradedCards[qIdx]) return;
+            
+            state.answers[qIdx] = optIdx;
+            state.gradedCards[qIdx] = true;
+            
+            const qData = state.questions[qIdx];
+            const isCorrect = optIdx === qData.answer;
+            
+            const feedbackBadge = getEl(`feedback-badge-${qIdx}`);
+            if (feedbackBadge) {
+                feedbackBadge.innerHTML = isCorrect 
+                    ? `<span class="text-[10px] font-black px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30"><i class="fa-solid fa-check mr-1"></i> CHÍNH XÁC</span>`
+                    : `<span class="text-[10px] font-black px-2.5 py-1 rounded-md bg-red-100 dark:bg-red-950/40 text-red-800 dark:text-red-400 border border-red-200 dark:border-red-800/30"><i class="fa-solid fa-xmark mr-1"></i> SAI RỒI</span>`;
+            }
+            
+            for (let i = 0; i < qData.options.length; i++) {
+                const optButton = getEl(`opt-p5-${qIdx}-${i}`);
+                const optDot = getEl(`dot-p5-${qIdx}-${i}`);
+                if(!optButton) continue;
+
+                optButton.className = "flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border transition-all select-none text-center border-gray-100 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/50 text-gray-400 dark:text-zinc-600 cursor-not-allowed";
+                optDot.className = "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 border-gray-200 dark:border-zinc-800";
+                optDot.innerHTML = '';
+                
+                if (i === qData.answer) {
+                    optButton.className = "flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border transition-all select-none text-center border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-400 font-semibold cursor-not-allowed shadow-inner";
+                    optDot.className = "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 border-emerald-500 bg-emerald-500";
+                    optDot.innerHTML = '<i class="fa-solid fa-check text-[10px] text-white"></i>';
+                } else if (i === optIdx) {
+                    optButton.className = "flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border transition-all select-none text-center border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-400 font-semibold cursor-not-allowed shadow-inner";
+                    optDot.className = "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 border-red-500 bg-red-500";
+                    optDot.innerHTML = '<i class="fa-solid fa-xmark text-[10px] text-white"></i>';
+                }
+            }
+            
+            const explanationBlock = getEl(`explanation-block-${qIdx}`);
+            if (explanationBlock) {
+                explanationBlock.classList.remove('hidden');
+                if(!isRebuilding) explanationBlock.classList.add('animate-fadeIn');
+            }
+            
+            if(!isRebuilding) {
+                updateLiveStats();
+                renderSidebarGrids();
+            }
+        }
+
+
+        // --- UPDATE STATS ---
+        function updateLiveStats() {
+            let totalPossible = 0;
+            let totalCorrect = 0;
+            let answeredCards = 0;
+            let totalCards = state.questions.length;
+
+            if (state.activePart === 'p1' || state.activePart === 'p5') {
+                state.questions.forEach((q, idx) => {
+                    totalPossible++;
+                    if (state.gradedCards[idx]) {
+                        answeredCards++;
+                        if (state.answers[idx] === q.answer) totalCorrect++;
+                    }
+                });
+            } else if (state.activePart === 'p2' || state.activePart === 'p4') {
+                state.questions.forEach((q, idx) => {
+                    let subTotal = 0;
+                    if (q.questions) {
+                        q.questions.forEach(subQ => {
+                            if(subQ.type==='input' || subQ.answer) subTotal++;
+                            if(subQ.type==='multi-input') subTotal += subQ.keys.length;
+                        });
+                    }
+                    totalPossible += subTotal;
+
+                    if (state.gradedCards[idx]) {
+                        answeredCards++;
+                        const s = state.answers[`score_${idx}`];
+                        if (s) totalCorrect += s.correct;
+                    }
+                });
+            } else if (state.activePart === 'p3') {
+                state.questions.forEach((q, idx) => {
+                    totalPossible += q.required_count;
+                    if (state.gradedCards[idx]) {
+                        answeredCards++;
+                        const s = state.answers[`score_${idx}`];
+                        if (s) totalCorrect += s.correct;
+                    }
+                });
+            }
+            
+            getEl('live-score').innerText = `Kết quả: ${totalCorrect}/${totalPossible} điểm`;
+            getEl('stat-answered-count').innerText = `${answeredCards}/${totalCards} bài`;
+            getEl('stat-score-count').innerText = `${totalCorrect}`;
+        }
+
+        // --- MODALS ---
+        function openResetModal() { getEl('modal-reset').classList.remove('hidden'); }
+        function closeResetModal() { getEl('modal-reset').classList.add('hidden'); }
+        function openExitModal() { getEl('modal-exit').classList.remove('hidden'); }
+        function closeExitModal() { getEl('modal-exit').classList.add('hidden'); }
+
+        function handleResetSession() {
+            closeResetModal();
+            startQuiz(state.activePart);
+            showToast("Đã xáo trộn bộ câu hỏi và làm mới bài thi!", "success");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function confirmExit() {
+            closeExitModal();
+            switchView('dashboard');
+        }
+
+        // INITIAL ONLOAD
+        window.onload = function() {
+            state.darkMode = false; // Chế độ sáng mặc định
+            toggleDarkMode();
+            switchView('dashboard');
+        };
+    </script>
+</body>
+</html>
