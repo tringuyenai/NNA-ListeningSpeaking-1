@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Prep Master - Listening & Speaking</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -132,7 +131,7 @@
                     <div class="w-12 h-12 rounded-xl bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform shrink-0"><i class="fa-solid fa-list-check"></i></div>
                     <div>
                         <h4 class="text-sm font-black text-gray-900 dark:text-white">P1: Trắc nghiệm (MCQ)</h4>
-                        <p class="text-[10px] text-gray-500 dark:text-zinc-400 mt-1">34 câu hỏi giao tiếp & học thuật.</p>
+                        <p class="text-[10px] text-gray-500 dark:text-zinc-400 mt-1">35 câu hỏi giao tiếp & học thuật.</p>
                     </div>
                 </div>
                 <!-- P2 -->
@@ -164,7 +163,7 @@
                     <div class="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform shrink-0"><i class="fa-solid fa-spell-check"></i></div>
                     <div>
                         <h4 class="text-sm font-black text-gray-900 dark:text-white">P5: Đúng / Sai / Không đề cập</h4>
-                        <p class="text-[10px] text-gray-500 dark:text-zinc-500 mt-1">True/False/Not Given (35 câu hỏi, 4 bài nghe)</p>
+                        <p class="text-[10px] text-gray-500 dark:text-zinc-500 mt-1">True/False/Not Given (36 câu hỏi, 4 bài nghe)</p>
                     </div>
                 </div>
             </div>
@@ -283,6 +282,7 @@
     </div>
 
     <script>
+        // --- STREAMING_CHUNK:Initializing Data Bank ---
         // --- DATA BANK ---
         const dataBank = {
             p1: {
@@ -400,6 +400,8 @@
                         explanation: "Man: It’s funny really, but I just didn’t get it. Everyone was talking about it, but I just thought it was silly. Woman: You mean you wanted more information? Man: Exactly! I mean what’s the point of something like that? It didn’t even make me laugh. Woman: Oh come on, you have to admit it was pretty funny! Man: Well I didn’t think so. And it was annoying the way everybody whistled the tune all the time. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>Why on earth would that make me buy something?</span> Woman: I think you’re too serious sometimes. It was just a bit of fun. If you want to find out more, then look on the internet."
                     },
                     {
+                        context: "MOBILE_PHONE_DANGERS",
+                        fullTranscript: "Anne-Marie: Well, we've planned to divide the presentation into three sections. We'll have an introduction, explaining why we think it's important to understand the dangers of mobiles.\nTutor: OK... but before you talk about the dangers of mobile phones, I think you should mention the advantages, you could put that in your introduction. It balances up the argument a bit.\nAnne-Marie: Then on the second slide, we'll have a list of the different types of danger and then on the last slide we're going to suggest ways of staying out of danger when you use a mobile.\nLaila: Err... Not exactly. We're actually going to explain the dangers of using mobile phones.",
                         question: "The tutor suggests_____",
                         vietnamese: "Người hướng dẫn gợi ý_____",
                         options: [
@@ -411,6 +413,7 @@
                         explanation: "Tutor: OK... but before you talk about the dangers of mobile phones, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I think you should mention the advantages, you could put that in your introduction. It balances up the argument a bit.</span>"
                     },
                     {
+                        context: "MOBILE_PHONE_DANGERS",
                         question: "The introduction explains_____",
                         vietnamese: "Phần giới thiệu giải thích_____",
                         options: [
@@ -422,6 +425,7 @@
                         explanation: "Anne-Marie: Well, we've planned to divide the presentation into three sections. We'll have an introduction, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>explaining why we think it's important to understand the dangers of mobiles.</span>"
                     },
                     {
+                        context: "MOBILE_PHONE_DANGERS",
                         question: "On the second slide, the students are planning to_____",
                         vietnamese: "Trên trang trình chiếu thứ hai, các sinh viên dự định_____",
                         options: [
@@ -433,6 +437,7 @@
                         explanation: "Anne-Marie: Then on the second slide, <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>we'll have a list of the different types of danger</span> and then on the last slide we're going to suggest ways of staying out of danger when you use a mobile."
                     },
                     {
+                        context: "MOBILE_PHONE_DANGERS",
                         question: "The topic of the presentation is_____",
                         vietnamese: "Chủ đề của bài thuyết trình là_____",
                         options: [
@@ -631,6 +636,8 @@
                         explanation: "Man: Well, that meal was OK – I can’t manage a dessert. How was your fried fish, Anna? Anna: It was quite nice though it could have been hotter. <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>I’m not sure that salad went with it, either. I’d have preferred some cooked vegetables. Yours looked really good, with your steak. Man: Yeah – they would have been a much better combination with your meal.</span> Maybe we should’ve swapped – I like salad with steak. Anyway, it was a pretty reasonable price. Anna: Yours was – mine was a bit much, I reckon. Man: We both had a lot of food on our plates, though – can’t complain about that. Anna: I guess not."
                     },
                     {
+                        context: "INTERNATIONAL_FESTIVALS",
+                        fullTranscript: "Student 2: Yeah, you know, like the carnival celebrations in South America and the water festival in Thailand.\nStudent 2: Yes. We've already found a connection between the carnival and the seasons. For instance, some researchers say that a very long time ago in Europe, people used to put on colorful masks and costumes at the beginning of the year to celebrate the end of winter and then they could get ready for spring.\nTutor: Okay, what exactly are you planning to study? The origins of the festivals? The types of celebration? People's attitudes towards the festivals?\nStudent 1: We were planning to look at the origins of the festivals and the time of year they're celebrated. We're thinking of looking at the connection between the seasons in different countries and the actual festivals. And then looking for similarities between countries that are quite far apart.",
                         question: "They would like to compare the carnival celebrations in South America and the water festival in _____",
                         vietnamese: "Họ muốn so sánh các lễ hội hóa trang ở Nam Mỹ và lễ hội nước ở _____",
                         options: [
@@ -640,6 +647,30 @@
                         ],
                         answer: 0,
                         explanation: "Student 2: Yeah, you know, like the carnival celebrations in South America <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>and the water festival in Thailand.</span>"
+                    },
+                    {
+                        context: "INTERNATIONAL_FESTIVALS",
+                        question: "Many years ago, to celebrate the end of winter, at the beginning of the year, people in Europe used to put on colorful masks and _____",
+                        vietnamese: "Nhiều năm trước, để kỷ niệm sự kết thúc của mùa đông, vào đầu năm, người dân ở Châu Âu thường đeo mặt nạ sặc sỡ và _____",
+                        options: [
+                            "costumes.",
+                            "customs.",
+                            "cuisines."
+                        ],
+                        answer: 0,
+                        explanation: "Student 2: Yes. We've already found a connection between the carnival and the seasons. For instance, some researchers say that a very long time ago in Europe, people used to put on colorful masks and <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>costumes</span> at the beginning of the year to celebrate the end of winter and then they could get ready for spring."
+                    },
+                    {
+                        context: "INTERNATIONAL_FESTIVALS",
+                        question: "The students are planning to study ____",
+                        vietnamese: "Các sinh viên dự định nghiên cứu ____",
+                        options: [
+                            "how the festivals started.",
+                            "people’s attitudes to festivals.",
+                            "different types of celebration."
+                        ],
+                        answer: 0,
+                        explanation: "Tutor: Okay, what exactly are you planning to study? The origins of the festivals? The types of celebration? People's attitudes towards the festivals?\nStudent 1: We were planning to look at <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>the origins of the festivals</span> and the time of year they're celebrated. We're thinking of looking at the connection between the seasons in different countries and the actual festivals. And then looking for similarities between countries that are quite far apart."
                     },
                     {
                         question: "You hear two friends talking about a website. The man thinks that the website is:",
@@ -673,6 +704,17 @@
                         ],
                         answer: 1,
                         explanation: "\"Well I thought it was pretty uncomfortable, really . We had to be on board half an hour before we set off – I’ve no idea why – and then didn’t stop at a service station for four hours. Four hours, can you imagine? We couldn’t even get up to stretch our legs. We were just stuck in our seats, and when we did eventually stop, it was a rush to find a snack and a drink before we had to get on again. But it was cheap, and the new bridge means you don’t have to take those awful ferries, which is definitely a bonus!\""
+                    },
+                    {
+                        question: "You hear an actor talking about the character she plays in a TV drama series. How does she feel about the character?",
+                        vietnamese: "Bạn nghe một diễn viên nói về nhân vật cô ấy đóng trong một bộ phim truyền hình. Cô ấy cảm thấy thế nào về nhân vật này?",
+                        options: [
+                            "She admires her intelligence.",
+                            "She sympathizes with her current problems.",
+                            "She is envious of her lifestyle."
+                        ],
+                        answer: 0,
+                        explanation: "Well, I enjoy playing her because she’s so complex. She can be really sharp-tongued and gives brilliant one-liners. I wish I could do that! <span class='bg-amber-200 dark:bg-amber-500/40 text-amber-900 dark:text-amber-300 font-bold px-1 rounded'>She’s a clever lady</span> but I wouldn’t want to spend my time jetting all over the world like she does. I think it’s really important to understand the character you’re playing, you know, to try and get inside the character’s head, so I’ve invented a whole backstory for her. I’m sure that at some point in the future she’ll have a romance. Then you’d see a different side to her."
                     }
                 ]
             },
@@ -685,12 +727,13 @@
                         vietnamese: "Bài 1: Lễ hội Nước - Ghi không quá 3 từ hoặc 1 số cho mỗi câu trả lời.",
                         instruction: "Write NO MORE THAN THREE WORDS OR A NUMBER for each answer.",
                         questions: [
-                            { text: "a. How many countries do they know of where festivals involve water? [a]", type: "input", key: "1a", answer: "6|six" },
-                            { text: "b. What three meanings can water have? [b]", type: "input", key: "1b", answer: "life, wealth, luck" },
-                            { text: "c. How are the Carnival and the seasons linked? [c]", type: "input", key: "1c", answer: "by ancient traditions|ancient traditions" },
-                            { text: "d. What do water festivals celebrate? [d]", type: "input", key: "1d", answer: "new year" }
+                            { text: "a. What else are the students going to research? [a]", type: "input", key: "1a", answer: "water festivals" },
+                            { text: "b. How many countries do they know of where festivals involve water? [b]", type: "input", key: "1b", answer: "6|six" },
+                            { text: "c. What three meanings can water have? [c]", type: "input", key: "1c", answer: "life, wealth, luck" },
+                            { text: "d. How are the Carnival and the seasons linked? [d]", type: "input", key: "1d", answer: "by ancient traditions|ancient traditions" },
+                            { text: "e. What do water festivals celebrate? [e]", type: "input", key: "1e", answer: "new year" }
                         ],
-                        explanation: "<strong>Từ khóa cần điền:</strong> 6 (hoặc six), life, wealth, luck, by ancient traditions (hoặc ancient traditions), new year.",
+                        explanation: "<strong>Từ khóa cần điền:</strong> water festivals, 6 (hoặc six), life, wealth, luck, by ancient traditions (hoặc ancient traditions), new year.",
                         transcript: "Tutor: Hmm. Yes, that makes sense. Did you look into any other festivals?\nStudent 2: Yes, we did. What we're planning to do is more research into water festivals. We found that in Asian countries, where there aren't any carnival celebrations, there are still festivals that involve people splashing each other with water. Actually, we found references to them in Burma, Thailand, Vietnam, China and Japan, but we also found a reference to a water festival in Mexico. So we thought we'd look into that a bit more and see if we can find any similarities between these countries. Uhhh…. I mean, we realize that water is more than just a way of cooling people down in hot weather. It also has a lot of different religious meanings and purposes. For instance, we found that in some societies water can mean life or wealth or just luck.\nStudent 1: Yes. And another thing we found out is that these water festivals often celebrate the beginning of the new year, just like the original celebrations, hundreds of years ago before the carnival. So, umm… up to now we found that the carnival and the seasons are linked by ancient traditions and the water plays an important part in the celebrations."
                     },
                     {
@@ -771,9 +814,9 @@
                         vietnamese: "Bài 7: Quy trình Thư viện - Ghi không quá 3 từ cho mỗi câu trả lời.",
                         instruction: "Write NO MORE THAN THREE WORDS for each answer.",
                         questions: [
-                            { text: "- What do you need to scan first? [a]", type: "input", key: "7a", answer: "student ID card|ID card" },
-                            { text: "- What does the scanner do when you scan a book? [b]", type: "input", key: "7b", answer: "makes a beep|sound|its beep|beep" },
-                            { text: "- What does the system do at the end? [c]", type: "input", key: "7c", answer: "prints a ticket" }
+                            { text: "- What do you need to scan first? [a] ", type: "input", key: "7a", answer: "student ID card|ID card" },
+                            { text: "- What does the scanner do when you scan a book? [b] ", type: "input", key: "7b", answer: "makes a beep|sound|its beep|beep" },
+                            { text: "- What does the system do at the end? [c] ", type: "input", key: "7c", answer: "prints a ticket" }
                         ],
                         explanation: "<strong>Từ khóa cần điền:</strong> ID card (hoặc student ID card), makes a beep (hoặc sound, beep), prints a ticket.",
                         transcript: "Chen: Thank you very much, Lily. So how do I borrow a book?\nLily: That's simple, too. When you go to the library you'll have to take your student ID card. When want to borrow a book, you take it downstairs to the scanner. Then, scan your ID card first. Then, open the book and slide it under the scanner until it makes a sound.. a short beep. And that's all you have to do... Oh, sorry, I forgot. At the end the system prints out a ticket. It's a good idea to keep it for a while, just in case you have a problem with your loan.\nChen: Thanks again, Lily, You've been really kind ... (fades out)"
@@ -801,9 +844,9 @@
                         vietnamese: "Bài 9: Hướng dẫn Thuyết trình - Ghi không quá 2 từ hoặc 1 số cho mỗi câu trả lời.",
                         instruction: "Write NO MORE THAN TWO WORDS OR A NUMBER for each answer.",
                         questions: [
-                            { text: "- The actual talk will last for [a]", type: "input", key: "9a", answer: "7 minutes|seven minutes" },
-                            { text: "- Students can put [b]", type: "input", key: "9b", answer: "some images|images|some photos|photos" },
-                            { text: "- The slides must all have the [c]", type: "input", key: "9c", answer: "same style" }
+                            { text: "- The actual talk will last for [a] ", type: "input", key: "9a", answer: "7 minutes|seven minutes" },
+                            { text: "- Students can put [b] ", type: "input", key: "9b", answer: "some images|images|some photos|photos" },
+                            { text: "- The slides must all have the [c] ", type: "input", key: "9c", answer: "same style" }
                         ],
                         explanation: "<strong>Từ khóa cần điền:</strong> 7 minutes, some images, same style.",
                         transcript: "Tutor: Have you got any other questions?\nHarry: Ummm.... yes. The presentation should be for 10 minutes, is that right?\nTutor: Yes. But ten minutes in total, including three minutes for questions. So you'll only talk for seven minutes.\nAnne-Marie: That's only two minutes each! We won't be able to say much in that time, at all!\nTutor: That's why you have to plan what you're going to say carefully and make sure you only include the most important information, For instance, you won't have time to give examples. But you could put some images on your slides that show examples, without spending time talking about them.\nLaila: Hey, that's a good idea. Arid the audierice can look at them while we talk\nTutor: And another thing.... make sure all the slides have the same style, You should get together and agree on one style for the whole presentation.\nHarry: OK, we'll do that too. Thanks a lot for your help."
@@ -813,10 +856,10 @@
                         vietnamese: "Bài 10: Hoàn thành câu - Tìm sách - Hoàn thành các câu. Ghi không quá 2 từ.",
                         instruction: "Complete the sentences. Write NO MORE THAN TWO WORDS.",
                         questions: [
-                            { text: "- Students may find information on food in books about cookery, history, or [a]", type: "input", key: "10a", answer: "entertainment" },
-                            { text: "- First look up the title in the [b]", type: "input", key: "10b", answer: "online catalogue" },
+                            { text: "- Students may find information on food in books about cookery, history, or [a] ", type: "input", key: "10a", answer: "entertainment" },
+                            { text: "- First look up the title in the [b] ", type: "input", key: "10b", answer: "online catalogue" },
                             { text: "- Students can use the [c] for looking up the title.", type: "input", key: "10c", answer: "library’s computers|computers" },
-                            { text: "- The class mark is one or two letters and [d]", type: "input", key: "10d", answer: "a number" },
+                            { text: "- The class mark is one or two letters and [d] ", type: "input", key: "10d", answer: "a number" },
                             { text: "- The [e] shows you where to look for the books.", type: "input", key: "10e", answer: "plan" }
                         ],
                         explanation: "<strong>Từ khóa cần điền:</strong> entertainment, online catalogue, computers, a number, plan.",
@@ -879,7 +922,7 @@
                             { key: '4d', answer: 'C' }
                         ],
                         explanation: "<strong>Các đáp án:</strong> [a] A, [b] B, [c] E, [d] C",
-                        transcript: "Chen: Excuse me, Lily. Could you help me? You know we've got an essay to write about eating customs across the world?\nLily: Yeah. We have to borrow some books, don't we?\nChen: Yes, but I missed the library training. Do you think you could show me how to find the books and how to take them out?\nLily: Sure, no problem. Shall I tell you about the different parts of the library, first?\nChen: Oh yes.... Thank you very much.\nLily: OK, then, let's look at the plan of the library. Here, you can see the main door in the north that leads into the lobby, in the middle of the building. there's a big open PC zone. The lift and stairs are on the left as you go in, and on the other side of the building there's the library cafe. That part of the library is pretty sociable... It's a good place to study with friends.\nChen: I really prefer to study alone. Is there anywhere in the library I can go?\nLily: Oh, if you like studying in a quiet place, it's better to go upstairs, to the silent zone. As you come out of the lift, or up the stairs, you'll see a section on your right, facing north, which is closed off. That's the silent zone. On the other side, facing south, are the bookshelves with all the cookbooks.... [fade]"
+                        transcript: "Chen: Excuse me, Lily. Could you help me? You know we've got an essay to write about eating customs across the world?\nLily: Yeah. We have to borrow some books, don't we?\nChen: Yes, but I missed the library training. Do you think you could show me how to find the books and how to take them out?\nLily: Sure, no problem. Shall I tell you about the different parts of the library, first?\nChen: Oh yes.... Thank you very much.\nLily: OK, then, let's look at the plan of the library. Here, you can see the main door in the north that leads into the lobby, in the middle of the building, there's a big open PC zone [a]. The lift and stairs are on the left as you go in, and on the other side of the building there's the library cafe [b]. That part of the library is pretty sociable... It's a good place to study with friends.\nChen: I really prefer to study alone. Is there anywhere in the library I can go?\nLily: Oh, if you like studying in a quiet place, it's better to go upstairs, to the silent zone. As you come out of the lift, or up the stairs, you'll see a section on your right, facing north, which is closed off. That's the silent zone [c]. On the other side, facing south, are the bookshelves with all the cookbooks [d].... "
                     }
                 ]
             },
@@ -1191,6 +1234,7 @@
         };
 
         // --- Core State ---
+        // --- STREAMING_CHUNK:Initializing Application State... ---
         const state = {
             darkMode: true,
             activeTab: 'dashboard',
@@ -1202,7 +1246,34 @@
             activeP5Context: 'ALL'
         };
 
+        // Tự động gán đường dẫn audio tĩnh gốc cho P1-P4 để đảm bảo src="..." luôn chính xác khi câu hỏi bị xáo trộn
+        ['p1', 'p2', 'p3', 'p4'].forEach(partKey => {
+            if(dataBank[partKey]) {
+                dataBank[partKey].questions.forEach((q, idx) => {
+                    const pNum = partKey.replace('p', '');
+                    const cNum = idx + 1;
+                    q.audioPath = `./audio/P${pNum}_Cau${cNum}_Audio${cNum}.mp3`;
+                    q.originalNumber = cNum; // Giữ cố định số thứ tự gốc
+                });
+            }
+        });
+
+        // Tự động gán đường dẫn cho P5 theo Context
+        if(dataBank['p5']) {
+            let contextCounter = 0;
+            let currentContext = "";
+            dataBank['p5'].questions.forEach((q, idx) => {
+                if(q.context !== currentContext) {
+                    currentContext = q.context;
+                    contextCounter++;
+                }
+                q.audioPath = `./audio/P5_Scenario${contextCounter}_Audio.mp3`;
+                q.originalNumber = idx + 1; // Giữ cố định số thứ tự gốc cho P5
+            });
+        }
+
         // --- DOM Helpers ---
+        // --- STREAMING_CHUNK:Defining UI Helpers... ---
         function getEl(id) { return document.getElementById(id); }
 
         function toggleSubtitle(id) {
@@ -1250,6 +1321,7 @@
             }
         }
 
+        // --- STREAMING_CHUNK:Building Core Quiz Logic... ---
         function getShuffledClone(arr) {
             let clone = JSON.parse(JSON.stringify(arr));
             for (let i = clone.length - 1; i > 0; i--) {
@@ -1292,34 +1364,52 @@
             
             const partData = dataBank[partKey];
             
-            if (partKey === 'p5') {
-                // Nhóm các câu hỏi theo context (bài)
+            if (partKey === 'p5' || partKey === 'p1') {
+                // Nhóm các câu hỏi theo context (bài) để giữ chúng liền kề khi xáo trộn
                 const grouped = {};
-                partData.questions.forEach(q => {
-                    if (!grouped[q.context]) grouped[q.context] = [];
-                    grouped[q.context].push(q);
+                const noContext = [];
+                partData.questions.forEach((q, index) => {
+                    if (q.context) {
+                        if (!grouped[q.context]) grouped[q.context] = [];
+                        grouped[q.context].push(q);
+                    } else {
+                        // Gán 1 UUID giả để xử lý đồng nhất với nhóm
+                        noContext.push([q]);
+                    }
                 });
                 
-                // Shuffle danh sách các bài (scenarios)
-                let contexts = Object.keys(grouped);
-                for (let i = contexts.length - 1; i > 0; i--) {
+                // Shuffle danh sách các bài (scenarios / nhóm context) và các câu đơn lẻ
+                let groups = [...Object.values(grouped), ...noContext];
+                for (let i = groups.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
-                    [contexts[i], contexts[j]] = [contexts[j], contexts[i]];
+                    [groups[i], groups[j]] = [groups[j], groups[i]];
                 }
                 
-                // Ghép lại thành danh sách phẳng, đồng thời shuffle câu hỏi trong mỗi bài
+                // Ghép lại thành danh sách phẳng, đồng thời shuffle câu hỏi TRONG mỗi bài nếu là P5 (P1 giữ nguyên thứ tự trong nhóm)
                 let flattened = [];
-                contexts.forEach(ctx => {
-                    let qs = grouped[ctx];
-                    for (let i = qs.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [qs[i], qs[j]] = [qs[j], qs[i]];
+                groups.forEach(qs => {
+                    if (partKey === 'p5' && qs.length > 1) {
+                        for (let i = qs.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [qs[i], qs[j]] = [qs[j], qs[i]];
+                        }
                     }
                     flattened.push(...qs);
                 });
                 
                 state.questions = flattened;
-                state.activeP5Context = contexts[0]; // Mặc định chọn bài đầu tiên sau khi xáo trộn
+
+                if (partKey === 'p5') {
+                    // Extract unique contexts for P5 filter dropdown
+                    const allContexts = Object.keys(grouped);
+                    // Shuffle only the named contexts
+                    for (let i = allContexts.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [allContexts[i], allContexts[j]] = [allContexts[j], allContexts[i]];
+                    }
+                    state.activeP5Context = allContexts.length > 0 ? allContexts[0] : 'ALL';
+                }
+                
             } else {
                 state.questions = getShuffledClone(partData.questions);
             }
@@ -1334,6 +1424,7 @@
         }
 
         // --- RENDER SIDEBAR ---
+        // --- STREAMING_CHUNK:Rendering sidebar... ---
         function renderSidebarGrids() {
             const pcGrid = getEl('sidebar-grid');
             let gridHtml = '';
@@ -1370,7 +1461,7 @@
 
                 gridHtml += `
                     <button onclick="scrollToQuestion(${idx})" class="flex items-center justify-between p-2.5 rounded-xl border transition-all duration-200 cursor-pointer text-xs font-black ${btnStyle}">
-                        <span class="text-left w-full text-center">${idx + 1}</span>
+                        <span class="text-left w-full text-center">${q.originalNumber}</span>
                         ${isFlagged ? '<i class="fa-solid fa-circle text-[6px] text-amber-400 absolute ml-6 -mt-3"></i>' : ''}
                     </button>
                 `;
@@ -1403,10 +1494,8 @@
         }
 
         function getAudioPath(partKey, index) {
-            // Quy tắc: ./audio/P#_Cau#_Audio#.mp3
-            const pNum = partKey.replace('p', '');
-            const cNum = index + 1;
-            return `./audio/P${pNum}_Cau${cNum}_Audio${cNum}.mp3`;
+            // Lấy trực tiếp thuộc tính audioPath đã được gán cố định từ đầu để tránh sai lệch khi xáo trộn
+            return state.questions[index].audioPath;
         }
 
         function renderAudioPlayer(idx) {
@@ -1434,6 +1523,7 @@
         }
 
         // --- RENDER MAIN QUESTIONS LIST ---
+        // --- STREAMING_CHUNK:Rendering main questions view... ---
         function renderQuestionsList() {
             const container = getEl('questions-container');
             let listHtml = '';
@@ -1442,13 +1532,13 @@
             let contextIndex = 0;
 
             if (state.activePart === 'p5') {
-                const uniqueContexts = [...new Set(state.questions.map(q => q.context))];
+                const uniqueContexts = [...new Set(state.questions.filter(q => q.context).map(q => q.context))];
                 
                 listHtml += `
                     <div class="mb-6 p-4 bg-white dark:bg-[#1a1a24] rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm flex items-center gap-3">
                         <label class="text-xs font-black text-gray-500 uppercase tracking-widest shrink-0"><i class="fa-solid fa-list text-violet-500 mr-1"></i> Chọn bài nghe:</label>
                         <select onchange="changeP5Context(this.value)" class="flex-1 bg-gray-50 dark:bg-[#12121a] border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 text-xs sm:text-sm font-bold rounded-xl px-3 py-2 outline-none focus:border-violet-500 transition-colors cursor-pointer">
-                            <option value="ALL" ${state.activeP5Context === 'ALL' ? 'selected' : ''}>-- Hiển thị tất cả 4 bài --</option>
+                            <option value="ALL" ${state.activeP5Context === 'ALL' ? 'selected' : ''}>-- Hiển thị tất cả bài --</option>
                             ${uniqueContexts.map(ctx => `<option value="${ctx}" ${state.activeP5Context === ctx ? 'selected' : ''}>${ctx}</option>`).join('')}
                         </select>
                     </div>
@@ -1463,18 +1553,18 @@
                     displayClass = 'hidden';
                 }
 
-                // Hiển thị Context cho P5
+                // Hiển thị Context cho P1 và P5
                 let contextHtml = '';
-                if (state.activePart === 'p5' && q.context !== currentContext) {
+                let hideIndividualAudio = false;
+
+                if ((state.activePart === 'p5' || state.activePart === 'p1') && q.context && q.context !== currentContext) {
                     currentContext = q.context;
                     contextIndex++;
                     
-                    // Trích xuất số bài từ chữ "SCENARIO X" để gọi đúng file Audio
-                    const match = currentContext.match(/SCENARIO (\d+)/i);
-                    const audioNum = match ? match[1] : contextIndex;
-                    const audioPath = `./audio/P5_Cau${audioNum}_Audio${audioNum}.mp3`;
+                    // Trích xuất đường dẫn Audio đã lưu
+                    const audioPath = getAudioPath(state.activePart, idx);
                     
-                    // Tìm câu hỏi có chứa fullTranscript để hiển thị trọn vẹn (fix lỗi bị mất script khi xáo trộn bài)
+                    // Tìm câu hỏi có chứa fullTranscript để hiển thị trọn vẹn
                     const qWithTranscript = state.questions.find(qItem => qItem.context === currentContext && qItem.fullTranscript);
                     const transcriptText = qWithTranscript 
                                             ? qWithTranscript.fullTranscript 
@@ -1482,15 +1572,16 @@
                     
                     contextHtml = `
                         <div class="mt-8 mb-4 space-y-4 ${displayClass}">
+                            ${state.activePart === 'p5' ? `
                             <span class="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 text-xs font-black uppercase tracking-widest border border-rose-200 dark:border-rose-800/30">
                                 ${currentContext}
-                            </span>
+                            </span>` : ''}
                             <!-- Audio Player chung cho cả đoạn -->
                             <div class="p-3.5 bg-gray-50 dark:bg-[#12121a] border border-gray-200 dark:border-zinc-800 rounded-2xl flex flex-col gap-2 shadow-inner">
                                 <div class="flex items-center justify-between px-2">
-                                    <span class="text-[9px] font-black tracking-widest text-violet-500 uppercase">Audio Track - Bài ${audioNum}</span>
+                                    <span class="text-[9px] font-black tracking-widest text-violet-500 uppercase">Audio Track ${state.activePart === 'p5' ? `- Bài ${contextIndex}` : '(Dùng chung cho nhóm câu hỏi)'}</span>
                                     <div class="flex items-center gap-3">
-                                        <button onclick="toggleTranscript('transcript-ctx-${contextIndex}')" class="text-[9px] font-bold text-violet-600 dark:text-violet-400 hover:text-violet-800 uppercase flex items-center gap-1 transition-colors"><i class="fa-solid fa-file-waveform"></i> Xem Transcript</button>
+                                        ${qWithTranscript ? `<button onclick="toggleTranscript('transcript-ctx-${contextIndex}')" class="text-[9px] font-bold text-violet-600 dark:text-violet-400 hover:text-violet-800 uppercase flex items-center gap-1 transition-colors"><i class="fa-solid fa-file-waveform"></i> Xem Transcript</button>` : ''}
                                         <span class="text-[9px] text-gray-400 font-mono">${audioPath.split('/').pop()}</span>
                                     </div>
                                 </div>
@@ -1498,12 +1589,22 @@
                                     <source src="${audioPath}" type="audio/mpeg">
                                     Trình duyệt không hỗ trợ thẻ audio.
                                 </audio>
+                                ${qWithTranscript ? `
                                 <div id="transcript-ctx-${contextIndex}" class="hidden mt-2 p-3 bg-white dark:bg-[#1a1a24] rounded-xl border border-gray-200 dark:border-zinc-700 text-xs text-gray-700 dark:text-gray-300 leading-relaxed max-h-48 overflow-y-auto custom-scrollbar italic whitespace-pre-line">
                                     ${transcriptText}
-                                </div>
+                                </div>` : ''}
                             </div>
                         </div>
                     `;
+                }
+                
+                if (state.activePart === 'p1' && q.context) {
+                    hideIndividualAudio = true;
+                }
+
+                // Nếu là câu đầu tiên không thuộc context nào sau 1 loạt context, reset currentContext
+                if (state.activePart === 'p1' && !q.context) {
+                    currentContext = "";
                 }
 
                 const cardPadding = state.activePart === 'p5' ? 'p-4 md:p-5' : 'p-5 md:p-8';
@@ -1520,17 +1621,17 @@
                         <div class="flex items-center justify-between gap-2 mb-4 border-b border-gray-100 dark:border-zinc-800/80 pb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 flex items-center justify-center font-black text-sm">
-                                    ${idx + 1}
+                                    ${q.originalNumber}
                                 </div>
                                 <span id="feedback-badge-${idx}"></span>
                             </div>
                             <span class="font-bold text-[10px] text-gray-400 uppercase tracking-widest">
-                                ${(state.activePart === 'p2' || state.activePart === 'p4') ? 'BÀI' : 'CÂU HỎI'} ${idx + 1}
+                                ${(state.activePart === 'p2' || state.activePart === 'p4') ? 'BÀI' : 'CÂU HỎI'} ${q.originalNumber}
                             </span>
                         </div>
 
                         <!-- Audio Player -->
-                        ${state.activePart !== 'p5' ? renderAudioPlayer(idx) : ''}
+                        ${(state.activePart !== 'p5' && !hideIndividualAudio) ? renderAudioPlayer(idx) : ''}
 
                         <!-- Nội dung câu hỏi (P1/P2/...) -->
                         <div id="card-content-${idx}">
@@ -1629,6 +1730,7 @@
         }
 
         // --- CONTENT RENDERING BY PART ---
+        // --- STREAMING_CHUNK:Building Part Content Renderers... ---
         function renderP1Content(q, idx) {
             let html = `
                 <div class="mb-5">
@@ -1775,11 +1877,11 @@
                         ${q.vietnamese || 'Bản dịch tiếng Việt đang được cập nhật...'}
                     </div>
                 </div>
-                <div class="flex flex-row flex-wrap sm:flex-nowrap gap-2">
+                <div class="flex flex-col sm:flex-row gap-2">
             `;
             q.options.forEach((option, optIdx) => {
                 html += `
-                    <div id="opt-p5-${idx}-${optIdx}" onclick="selectP5Option(${idx}, ${optIdx})" class="flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-[#1e1e28] text-gray-800 dark:text-zinc-200 active:scale-[0.99] hover:border-rose-500 hover:shadow-md cursor-pointer transition-all select-none text-center">
+                    <div id="opt-p5-${idx}-${optIdx}" onclick="selectP5Option(${idx}, ${optIdx})" class="flex-1 flex flex-row items-center justify-start sm:justify-center gap-3 p-3 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-[#1e1e28] text-gray-800 dark:text-zinc-200 active:scale-[0.99] hover:border-rose-500 hover:shadow-md cursor-pointer transition-all select-none">
                         <div id="dot-p5-${idx}-${optIdx}" class="w-4 h-4 rounded-full border border-gray-300 dark:border-zinc-600 flex items-center justify-center shrink-0"></div>
                         <span class="font-black text-xs sm:text-sm uppercase tracking-wider">${option}</span>
                     </div>
@@ -1791,6 +1893,7 @@
 
 
         // --- INTERACTION LOGIC P1 ---
+        // --- STREAMING_CHUNK:Building Grading Logic... ---
         function selectP1Option(qIdx, optIdx, isRebuilding = false) {
             if (state.gradedCards[qIdx]) return; // Nếu đã khóa thì bỏ qua
             
@@ -2116,16 +2219,16 @@
                 const optDot = getEl(`dot-p5-${qIdx}-${i}`);
                 if(!optButton) continue;
 
-                optButton.className = "flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border transition-all select-none text-center border-gray-100 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/50 text-gray-400 dark:text-zinc-600 cursor-not-allowed";
+                optButton.className = "flex-1 flex flex-row items-center justify-start sm:justify-center gap-3 p-3 rounded-xl border transition-all select-none text-center border-gray-100 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/50 text-gray-400 dark:text-zinc-600 cursor-not-allowed";
                 optDot.className = "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 border-gray-200 dark:border-zinc-800";
                 optDot.innerHTML = '';
                 
                 if (i === qData.answer) {
-                    optButton.className = "flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border transition-all select-none text-center border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-400 font-semibold cursor-not-allowed shadow-inner";
+                    optButton.className = "flex-1 flex flex-row items-center justify-start sm:justify-center gap-3 p-3 rounded-xl border transition-all select-none text-center border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-400 font-semibold cursor-not-allowed shadow-inner";
                     optDot.className = "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 border-emerald-500 bg-emerald-500";
                     optDot.innerHTML = '<i class="fa-solid fa-check text-[10px] text-white"></i>';
                 } else if (i === optIdx) {
-                    optButton.className = "flex-1 flex flex-row items-center justify-center gap-2 p-2.5 rounded-xl border transition-all select-none text-center border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-400 font-semibold cursor-not-allowed shadow-inner";
+                    optButton.className = "flex-1 flex flex-row items-center justify-start sm:justify-center gap-3 p-3 rounded-xl border transition-all select-none text-center border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-400 font-semibold cursor-not-allowed shadow-inner";
                     optDot.className = "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 border-red-500 bg-red-500";
                     optDot.innerHTML = '<i class="fa-solid fa-xmark text-[10px] text-white"></i>';
                 }
